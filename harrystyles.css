@@ -1,7 +1,117 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #4d6647;
     color: white;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: white;
+    color: black;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Header */
+header {
+    background-color: #4d6647;
+    text-align: center;
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navigation */
+nav {
+    background-color: #3b5135;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav ul li a:hover {
+    color: #d9d9d9;
+}
+
+/* Main Content */
+main {
+    padding: 40px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Image Styling */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.image-container img {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Welcome Text */
+.welcome-text {
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
 }

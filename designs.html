@@ -1,1 +1,120 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designs | Open Source Open Road</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+          
+        }
+        header {
+            
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+      
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .design-item {
+            background: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .design-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .download-btn:hover {
+            background: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Open Source CNC Designs</h1>
+    <p>Download and modify our van conversion designs to fit your build!</p>
+</header>
+
+<div class="container">
+    <h2>Available Designs</h2>
+    <div class="design-grid">
+        
+        <div class="design-item">
+            <img src="bed-frame.jpg" alt="Bed Frame Design">
+            <h3>Bed Frame</h3>
+            <p>A modular, adjustable bed frame for van conversions.</p>
+            <a href="bed-frame.dxf" class="download-btn" download>Download DXF</a>
+        </div>
+
+        <div class="design-item">
+            <img src="kitchen-unit.jpg" alt="Kitchen Unit Design">
+            <h3>Kitchen Unit</h3>
+            <p>A compact, efficient kitchen layout with storage space.</p>
+            <a href="kitchen-unit.dxf" class="download-btn" download>Download DXF</a>
+        </div>
+
+        <div class="design-item">
+            <img src="storage-box.jpg" alt="Storage Box Design">
+            <h3>Storage Box</h3>
+            <p>Custom storage units for better organization.</p>
+            <a href="storage-box.dxf" class="download-btn" download>Download DXF</a>
+        </div>
+
+        <div class="design-item">
+            <img src="folding-table.jpg" alt="Folding Table Design">
+            <h3>Folding Table</h3>
+            <p>A space-saving foldable table for multi-use setups.</p>
+            <a href="folding-table.dxf" class="download-btn" download>Download DXF</a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Open Source Open Road | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

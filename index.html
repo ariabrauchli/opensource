@@ -1,149 +1,299 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Open Source Open Road</title>
-    <link rel="stylesheet" href="harrystyles.css" />
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 100%;
-            padding: 0 16px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Source Open Road</title>
+  <!-- 
+    If you want custom fonts similar to Arcana’s styling, 
+    you can import Google Fonts here, for example:
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Open+Sans&display=swap">
+  -->
+  <style>
+    /* Base Reset & Box-Sizing */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 20px 0;
-           
-        }
+    /* Root Colors & Typography */
+    :root {
+      --bg-color: #f2f1eb;         /* Off-white / beige background */
+      --text-color: #2c2c2c;       /* Dark text */
+      --border-color: #dcd8ce;     /* Soft gray for borders */
+      --highlight-color: #b3aa9c;  /* Subtle highlight if needed */
+      --font-primary: "Helvetica Neue", Arial, sans-serif; 
+      /* or a serif like 'Libre Baskerville' for a more editorial feel */
+    }
 
-        /* Navigation */
-        nav {
-            
-            padding: 10px 0;
-        }
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.5;
+    }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+    a {
+      text-decoration: none;
+      color: var(--text-color);
+    }
 
-        nav ul li {
-            margin: 5px;
-        }
+    /* Announcement Bar (top) */
+    .announcement-bar {
+      font-size: 14px;
+      text-align: center;
+      padding: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 15px;
-            display: block;
-        }
+    /* Header & Nav */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
 
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-        }
+    .header-left,
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
+    .brand-name {
+      font-size: 24px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      flex: 1; /* pushes brand name to center in row */
+      display: flex;
+      justify-content: center;
+    }
 
-            nav ul li {
-                margin: 0;
-            }
+    .menu-button {
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
 
-            nav ul li a {
-                padding: 15px;
-                border-top: 1px ;
-            }
+    .user-links a {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
 
-            .menu-toggle {
-                display: block;
-                text-align: center;
-                width: 100%;
-                background;
-            }
-        }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        /* Content */
-        main {
-            padding: 20px;
-            text-align: center;
-        }
+    .hero img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
 
-        /* Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0
-            padding: 10px;
-            z-index: 100;
-        }
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff; /* text on top of hero image */
+      text-align: center;
+      max-width: 90%;
+    }
 
-        .skip-link:focus {
-            top: 0;
-        }
-    </style>
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero button {
+      margin-top: 15px;
+      padding: 12px 24px;
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* Scrolling / Repeated Text Section */
+    .reclaim-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+    }
+
+    /* Simple marquee effect (infinite scroll) */
+    .reclaim-strip span {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: scroll 10s linear infinite;
+    }
+
+    /* Duplicate text to create a continuous effect */
+    .reclaim-strip span:nth-child(2) {
+      animation-delay: 5s;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Spring Essentials Section */
+    .essentials {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .essentials h2 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .product-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product {
+      background-color: #fff;
+      border: 1px solid var(--border-color);
+      padding: 20px;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      border-top: 1px solid var(--border-color);
+      color: #777;
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .hero button {
+        font-size: 12px;
+      }
+
+      .reclaim-strip span {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    FREE DOMESTIC SHIPPING ON ORDERS OVER $100
+  </div>
 
-    <div class="container">
-        <header>
-            <h1>Open Source Open Road</h1>
-        </header>
-
-        <nav>
-            <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="customize.html">Customize</a></li>
-                <li><a href="designs.html">Shop Designs</a></li>
-                <li><a href="diy.html">DIY Instructions</a></li>
-            </ul>
-        </nav>
-
-        <main id="maincontent">
-            <h2>About</h2>
-            <p>
-                Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. 
-                Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. 
-                Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
-            </p>
-        </main>
+  <!-- Header / Nav -->
+  <header>
+    <div class="header-left">
+      <div class="menu-button">MENU</div>
     </div>
+    <div class="brand-name">OPEN SOURCE OPEN ROAD</div>
+    <div class="header-right user-links">
+      <a href="#">LOG IN</a>
+      <a href="#">CART (0)</a>
+    </div>
+  </header>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector(".menu-toggle").addEventListener("click", function() {
-            document.querySelector("nav ul").classList.toggle("open");
-        });
-    </script>
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Replace with your van-themed hero image -->
+    <img src="hero-van.jpg" alt="Hero Van Image">
+    <div class="hero-content">
+      <h1>Van Conversions from the Open Road</h1>
+      <p>Explore our open-source designs and find your perfect fit.</p>
+      <button>SHOP NOW</button>
+    </div>
+  </section>
+
+  <!-- Repeated Text Strip (like "RECLAIM YOUR SENSES") -->
+  <section class="reclaim-strip">
+    <span>RECLAIM YOUR ADVENTURE</span>
+    <span>RECLAIM YOUR ADVENTURE</span>
+  </section>
+
+  <!-- Spring Essentials -->
+  <section class="essentials">
+    <h2>Spring Essentials</h2>
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product">
+        <img src="van1.jpg" alt="Van Product 1">
+        <h3>Van Interior 1</h3>
+        <p>Short description of your van product or layout.</p>
+      </div>
+      <!-- Product 2 -->
+      <div class="product">
+        <img src="van2.jpg" alt="Van Product 2">
+        <h3>Van Interior 2</h3>
+        <p>Short description of your van product or layout.</p>
+      </div>
+      <!-- Product 3 -->
+      <div class="product">
+        <img src="van3.jpg" alt="Van Product 3">
+        <h3>Van Interior 3</h3>
+        <p>Short description of your van product or layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Open Source Open Road. All rights reserved.
+  </footer>
 
 </body>
 </html>

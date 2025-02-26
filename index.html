@@ -6,13 +6,24 @@
     <title>Open Source Open Road</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Root Styles */
+        :root {
+            --background: #f4f1eb;
+            --text-dark: #3d3d3d;
+            --text-light: #6a6a6a;
+            --border: #d6d2c9;
+            --button-bg: transparent;
+            --button-border: #3d3d3d;
+            --button-text: #3d3d3d;
+        }
+
         /* General Styles */
         body {
-            font-family: "serif", sans-serif;
+            font-family: "Georgia", serif;
+            background-color: var(--background);
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
-            background-color: #f5f3ee;
-            color: #3d3d3d;
         }
 
         .container {
@@ -24,18 +35,18 @@
         /* Top Bar */
         .top-bar {
             text-align: center;
-            padding: 10px 0;
             font-size: 14px;
-            border-bottom: 1px solid #ccc;
-            background-color: #e5e3db;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         /* Header */
         header {
             text-align: center;
-            padding: 20px 0;
-            font-size: 24px;
+            padding: 30px 0;
+            font-size: 26px;
             font-weight: bold;
+            letter-spacing: 2px;
         }
 
         /* Navigation */
@@ -43,59 +54,55 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            border-bottom: 1px solid #ccc;
-            background-color: white;
-        }
-
-        .menu-toggle {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-links {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 60px;
-            background-color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .nav-links.open {
             display: flex;
+            gap: 20px;
         }
 
         .nav-links a {
             text-decoration: none;
-            padding: 10px;
-            display: block;
-            color: #3d3d3d;
-            font-size: 18px;
+            color: var(--text-dark);
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: opacity 0.3s ease;
         }
 
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none;
-            }
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
 
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
             .nav-links {
-                display: flex;
-                flex-direction: row;
-                position: static;
-                width: auto;
-                text-align: left;
-                background: none;
-                padding: 0;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 60px;
+                background-color: var(--background);
+                text-align: center;
+                padding: 20px 0;
+                border-top: 1px solid var(--border);
             }
 
-            .nav-links a {
-                margin: 0 15px;
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
             }
         }
 
@@ -103,58 +110,87 @@
         .hero {
             position: relative;
             text-align: center;
-            padding: 60px 0;
+            padding: 100px 20px;
             background: url('your-van-image.jpg') no-repeat center center / cover;
-            color: white;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero h1 {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: bold;
+            max-width: 600px;
+            margin-bottom: 10px;
         }
 
         .hero p {
             font-size: 18px;
-            margin: 10px 0;
+            max-width: 600px;
+            color: var(--text-light);
         }
 
         .hero button {
-            background: none;
-            border: 1px solid white;
-            padding: 10px 20px;
-            color: white;
+            background: var(--button-bg);
+            border: 1px solid var(--button-border);
+            padding: 12px 24px;
             font-size: 16px;
+            color: var(--button-text);
             cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .hero button:hover {
+            background: var(--button-border);
+            color: white;
         }
 
         /* Section */
         .section {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         .section h2 {
             font-size: 28px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             padding: 20px;
         }
 
-        @media (min-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .gallery img {
             width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+
+        .gallery p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
         }
     </style>
 </head>
@@ -171,30 +207,4 @@
             <a href="#">About</a>
             <a href="#">Customize</a>
             <a href="#">Shop Designs</a>
-            <a href="#">DIY Instructions</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <h1>VAN CONVERSIONS MADE EASY</h1>
-        <p>Customizable, open-source van layouts for everyone.</p>
-        <button>Shop Now →</button>
-    </section>
-
-    <section class="section">
-        <h2>SPRING ESSENTIALS</h2>
-        <div class="gallery">
-            <img src="van1.jpg" alt="Van Interior">
-            <img src="van2.jpg" alt="Van Kitchen">
-            <img src="van3.jpg" alt="Van Workspace">
-        </div>
-    </section>
-
-    <script>
-        document.querySelector(".menu-toggle").addEventListener("click", function () {
-            document.querySelector(".nav-links").classList.toggle("open");
-        });
-    </script>
-
-</body>
-</html>
+            <a href="#">DIY Instructions</

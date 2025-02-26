@@ -1,210 +1,149 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Open Source Open Road</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="harrystyles.css" />
     <style>
-        /* Root Styles */
-        :root {
-            --background: #f4f1eb;
-            --text-dark: #3d3d3d;
-            --text-light: #6a6a6a;
-            --border: #d6d2c9;
-            --button-bg: transparent;
-            --button-border: #3d3d3d;
-            --button-text: #3d3d3d;
-        }
-
         /* General Styles */
         body {
-            font-family: "Georgia", serif;
-            background-color: var(--background);
-            color: var(--text-dark);
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
-
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Top Bar */
-        .top-bar {
-            text-align: center;
-            font-size: 14px;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
+            max-width: 100%;
+            padding: 0 16px;
         }
 
         /* Header */
         header {
             text-align: center;
-            padding: 30px 0;
-            font-size: 26px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            padding: 20px 0;
+           
         }
 
         /* Navigation */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--border);
+            
+            padding: 10px 0;
         }
 
-        .nav-links {
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
-            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .nav-links a {
+        nav ul li {
+            margin: 5px;
+        }
+
+        nav ul li a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-size: 16px;
-            letter-spacing: 1px;
-            transition: opacity 0.3s ease;
+            color: white;
+            padding: 10px 15px;
+            display: block;
         }
 
-        .nav-links a:hover {
-            opacity: 0.6;
-        }
-
+        /* Mobile Menu */
         .menu-toggle {
             display: none;
-            font-size: 24px;
             background: none;
             border: none;
+            font-size: 24px;
+            color: white;
             cursor: pointer;
+            padding: 10px;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
+            nav ul {
                 display: none;
                 flex-direction: column;
-                position: absolute;
                 width: 100%;
-                left: 0;
-                top: 60px;
-                background-color: var(--background);
                 text-align: center;
-                padding: 20px 0;
-                border-top: 1px solid var(--border);
             }
 
-            .nav-links.open {
-                display: flex;
+            nav ul li {
+                margin: 0;
+            }
+
+            nav ul li a {
+                padding: 15px;
+                border-top: 1px ;
             }
 
             .menu-toggle {
                 display: block;
+                text-align: center;
+                width: 100%;
+                background;
             }
         }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            text-align: center;
-            padding: 100px 20px;
-            background: url('your-van-image.jpg') no-repeat center center / cover;
-            color: var(--text-dark);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero h1 {
-            font-size: 40px;
-            font-weight: bold;
-            max-width: 600px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            color: var(--text-light);
-        }
-
-        .hero button {
-            background: var(--button-bg);
-            border: 1px solid var(--button-border);
-            padding: 12px 24px;
-            font-size: 16px;
-            color: var(--button-text);
-            cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .hero button:hover {
-            background: var(--button-border);
-            color: white;
-        }
-
-        /* Section */
-        .section {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .section h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        /* Content */
+        main {
             padding: 20px;
-        }
-
-        .gallery-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .gallery p {
-            margin-top: 10px;
-            font-size: 16px;
-            color: var(--text-light);
-        }
-
-        /* Footer */
-        footer {
             text-align: center;
-            padding: 40px 20px;
-            font-size: 14px;
-            border-top: 1px solid var(--border);
-            color: var(--text-light);
+        }
+
+        /* Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0
+            padding: 10px;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">FREE SHIPPING ON ALL ORDERS OVER $100</div>
+    <a class="skip-link" href="#maincontent">Skip to main content</a>
 
-    <header>Open Source Open Road</header>
+    <div class="container">
+        <header>
+            <h1>Open Source Open Road</h1>
+        </header>
 
-    <nav>
-        <button class="menu-toggle" aria-label="Open Navigation">☰</button>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Customize</a>
-            <a href="#">Shop Designs</a>
-            <a href="#">DIY Instructions</
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="designs.html">Shop Designs</a></li>
+                <li><a href="diy.html">DIY Instructions</a></li>
+            </ul>
+        </nav>
+
+        <main id="maincontent">
+            <h2>About</h2>
+            <p>
+                Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. 
+                Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. 
+                Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
+            </p>
+        </main>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector(".menu-toggle").addEventListener("click", function() {
+            document.querySelector("nav ul").classList.toggle("open");
+        });
+    </script>
+
+</body>
+</html>

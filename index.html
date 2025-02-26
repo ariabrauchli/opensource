@@ -117,4 +117,235 @@
       padding: 10px 15px;
       font-weight: 600;
       color: #fff;
-      transition: opacity 0.3s
+      transition: opacity 0.3s ease;
+    }
+    nav ul li a:hover {
+      opacity: 0.7;
+    }
+
+    /* HERO SECTION (Arcana-like banner) */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 50vh; /* Adjust as needed */
+      background: url('hero-van.jpg') center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3); /* dark overlay for contrast */
+    }
+    .hero-content {
+      position: relative;
+      color: #fff;
+      padding: 20px;
+      max-width: 600px;
+    }
+    .hero-content h2 {
+      font-family: var(--heading-font);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .hero-content button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .hero-content button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* MARQUEE / REPEATED TEXT STRIP (Arcana has "RECLAIM YOUR SENSES") */
+    .marquee {
+      width: 100%;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      overflow: hidden;
+      background-color: var(--light-bg);
+    }
+    .marquee span {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: scroll 10s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee span:nth-child(2) {
+      animation-delay: 5s; /* so second set starts halfway through */
+    }
+    @keyframes scroll {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* SPRING ESSENTIALS (Grid of 3 items) */
+    .essentials-section {
+      text-align: center;
+      background-color: var(--light-bg);
+      padding: 40px 20px;
+    }
+    .essentials-section h2 {
+      font-family: var(--heading-font);
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .essentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .essentials-item {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      padding: 20px;
+      text-align: center;
+    }
+    .essentials-item img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+    .essentials-item h3 {
+      font-family: var(--heading-font);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* MAIN CONTENT (Your Original Text) */
+    main {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    main h2 {
+      font-family: var(--heading-font);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    main p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* MEDIA QUERIES FOR RESPONSIVENESS */
+    @media (max-width: 768px) {
+      .hero {
+        height: 40vh;
+      }
+      .hero-content h2 {
+        font-size: 1.6rem;
+      }
+      .hero-content button {
+        font-size: 0.8rem;
+      }
+      .essentials-section h2 {
+        font-size: 1.6rem;
+      }
+      .essentials-item h3 {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <h1>Open Source Open Road</h1>
+    </header>
+
+    <!-- NAV BAR IN GREEN (Arcana style) -->
+    <div class="top-bar">
+      <!-- 
+        If you want a left "MENU" button for mobile, uncomment below:
+        <button class="menu-button">MENU</button> 
+      -->
+      <nav>
+        <h2 class="sr-only">Main Navigation</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="customize.html">Customize</a></li>
+          <li><a href="designs.html">Shop Designs</a></li>
+          <li><a href="diy.html">DIY Instructions</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- HERO SECTION (Large Banner) -->
+    <section class="hero">
+      <div class="hero-content">
+        <!-- Example Arcana-like heading -->
+        <h2>Van Conversions from the Open Road</h2>
+        <p>Effortless, open-source designs for every adventurer.</p>
+        <!-- Arcana-like button (change text as needed) -->
+        <button>Learn More</button>
+      </div>
+    </section>
+
+    <!-- MARQUEE STRIP (Replace text as you wish, or remove if not needed) -->
+    <div class="marquee">
+      <span>RECLAIM YOUR ADVENTURE</span>
+      <span>RECLAIM YOUR ADVENTURE</span>
+    </div>
+
+    <!-- SPRING ESSENTIALS SECTION (3-Column Grid) -->
+    <section class="essentials-section">
+      <h2>Spring Essentials</h2>
+      <div class="essentials-grid">
+        <div class="essentials-item">
+          <img src="van1.jpg" alt="Van Interior 1">
+          <h3>Van Interior 1</h3>
+          <p>A short description of your van product or layout.</p>
+        </div>
+        <div class="essentials-item">
+          <img src="van2.jpg" alt="Van Interior 2">
+          <h3>Van Interior 2</h3>
+          <p>Another short description of your van product or layout.</p>
+        </div>
+        <div class="essentials-item">
+          <img src="van3.jpg" alt="Van Interior 3">
+          <h3>Van Interior 3</h3>
+          <p>Yet another short description for a van layout.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT (Your Original Text) -->
+    <main id="maincontent">
+      <h2>About</h2>
+      <p>
+        Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. 
+        Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. 
+        Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
+      </p>
+    </main>
+  </div>
+</body>
+</html>

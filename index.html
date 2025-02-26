@@ -4,9 +4,9 @@
   padding: 0;
 }
 
-/* Import Fonts (include in your HTML <head> if not already imported)
-   Example:
-   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+/* 
+  Import these fonts in your HTML head:
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 */
 
 /* Base Styles */
@@ -22,7 +22,7 @@ body {
   padding: 0 16px;
 }
 
-/* Accessibility Skip Link */
+/* Accessibility: Skip Link */
 .skip-link {
   position: absolute;
   top: -40px;
@@ -49,17 +49,17 @@ header h1 {
 
 /* Navigation */
 nav {
-  background-color: #356859;  /* Deep green */
+  background-color: #356859; /* Deep green */
   padding: 10px 0;
   position: relative;
 }
 nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
 }
 nav ul li {
   margin: 5px;
@@ -89,6 +89,7 @@ nav ul li a:hover {
   top: 10px;
   left: 10px;
 }
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -110,7 +111,7 @@ nav ul li a:hover {
     margin: 0;
   }
   nav ul li a {
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 

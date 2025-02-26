@@ -1,151 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Open Source Open Road</title>
+    <title>OpenSource</title>
     <link rel="stylesheet" href="harrystyles.css" />
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 100%;
-            padding: 0 16px;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #f4f4f4;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: #333;
-            padding: 10px 0;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav ul li {
-            margin: 5px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 15px;
-            display: block;
-        }
-
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background: #333;
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul li {
-                margin: 0;
-            }
-
-            nav ul li a {
-                padding: 15px;
-                border-top: 1px solid #444;
-            }
-
-            .menu-toggle {
-                display: block;
-                text-align: center;
-                width: 100%;
-                background: #333;
-            }
-        }
-
-        /* Content */
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #000;
-            color: #fff;
-            padding: 10px;
-            z-index: 100;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-    </style>
-</head>
-<body>
-
-    <a class="skip-link" href="#maincontent">Skip to main content</a>
-
-    <div class="container">
-        <header>
-            <h1>Open Source Open Road</h1>
-        </header>
-
-        <nav>
-            <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="customize.html">Customize</a></li>
-                <li><a href="designs.html">Shop Designs</a></li>
-                <li><a href="diy.html">DIY Instructions</a></li>
-            </ul>
-        </nav>
-
-        <main id="maincontent">
-            <h2>About</h2>
-            <p>
-                Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. 
-                Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. 
-                Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
-            </p>
-        </main>
-    </div>
-
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector(".menu-toggle").addEventListener("click", function() {
-            document.querySelector("nav ul").classList.toggle("open");
-        });
-    </script>
-
-</body>
-</html>
+      /* Mobile-first base styles */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin: 1rem 0;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      nav li {
+        margin: 0.5rem 0;
+      }
+      nav a {
+        text-decoration: none;
+        font-size: 1rem;
+      }
+      main {
+        padding: 1rem 0;
+        font-size: 1rem;
+        line-height: 1.5;
+     

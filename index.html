@@ -1,149 +1,133 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Open Source Open Road</title>
-    <link rel="stylesheet" href="harrystyles.css" />
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 100%;
-            padding: 0 16px;
-        }
+/* Import Fonts (include in your HTML <head> if not already imported)
+   Example:
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+*/
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 20px 0;
-           
-        }
+/* Base Styles */
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  line-height: 1.6;
+}
 
-        /* Navigation */
-        nav {
-            
-            padding: 10px 0;
-        }
+.container {
+  max-width: 100%;
+  padding: 0 16px;
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 0;
+}
 
-        nav ul li {
-            margin: 5px;
-        }
+/* Header */
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 15px;
-            display: block;
-        }
+/* Navigation */
+nav {
+  background-color: #356859;  /* Deep green */
+  padding: 10px 0;
+  position: relative;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  margin: 5px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  display: block;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+nav ul li a:hover {
+  opacity: 0.8;
+}
 
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-        }
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #356859;
+    position: absolute;
+    top: 60px;
+    left: 0;
+  }
+  nav ul.open {
+    display: flex;
+  }
+  nav ul li {
+    margin: 0;
+  }
+  nav ul li a {
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+}
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul li {
-                margin: 0;
-            }
-
-            nav ul li a {
-                padding: 15px;
-                border-top: 1px ;
-            }
-
-            .menu-toggle {
-                display: block;
-                text-align: center;
-                width: 100%;
-                background;
-            }
-        }
-
-        /* Content */
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0
-            padding: 10px;
-            z-index: 100;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-    </style>
-</head>
-<body>
-
-    <a class="skip-link" href="#maincontent">Skip to main content</a>
-
-    <div class="container">
-        <header>
-            <h1>Open Source Open Road</h1>
-        </header>
-
-        <nav>
-            <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="customize.html">Customize</a></li>
-                <li><a href="designs.html">Shop Designs</a></li>
-                <li><a href="diy.html">DIY Instructions</a></li>
-            </ul>
-        </nav>
-
-        <main id="maincontent">
-            <h2>About</h2>
-            <p>
-                Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. 
-                Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. 
-                Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
-            </p>
-        </main>
-    </div>
-
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector(".menu-toggle").addEventListener("click", function() {
-            document.querySelector("nav ul").classList.toggle("open");
-        });
-    </script>
-
-</body>
-</html>
+/* Main Content */
+main {
+  padding: 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+main h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+main p {
+  font-size: 1rem;
+  line-height: 1.7;
+}

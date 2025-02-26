@@ -1,146 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Source Open Road</title>
-    <link rel="stylesheet" href="harrystyles.css" />
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "serif", sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            background-color: #f5f3ee;
+            color: #3d3d3d;
         }
+
         .container {
-            max-width: 100%;
-            padding: 0 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #ccc;
+            background-color: #e5e3db;
         }
 
         /* Header */
         header {
             text-align: center;
             padding: 20px 0;
-           
+            font-size: 24px;
+            font-weight: bold;
         }
 
         /* Navigation */
         nav {
-            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+            background-color: white;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 60px;
+            background-color: white;
+            text-align: center;
             padding: 10px 0;
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .nav-links.open {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
-        nav ul li {
-            margin: 5px;
-        }
-
-        nav ul li a {
+        .nav-links a {
             text-decoration: none;
-            color: white;
-            padding: 10px 15px;
+            padding: 10px;
             display: block;
+            color: #3d3d3d;
+            font-size: 18px;
         }
 
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul li {
-                margin: 0;
-            }
-
-            nav ul li a {
-                padding: 15px;
-                border-top: 1px ;
-            }
-
+        @media (min-width: 768px) {
             .menu-toggle {
-                display: block;
-                text-align: center;
-                width: 100%;
-                background;
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                text-align: left;
+                background: none;
+                padding: 0;
+            }
+
+            .nav-links a {
+                margin: 0 15px;
             }
         }
 
-        /* Content */
-        main {
-            padding: 20px;
+        /* Hero Section */
+        .hero {
+            position: relative;
             text-align: center;
+            padding: 60px 0;
+            background: url('your-van-image.jpg') no-repeat center center / cover;
+            color: white;
         }
 
-        /* Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0
-            padding: 10px;
-            z-index: 100;
+        .hero h1 {
+            font-size: 36px;
+            font-weight: bold;
         }
 
-        .skip-link:focus {
-            top: 0;
+        .hero p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .hero button {
+            background: none;
+            border: 1px solid white;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Section */
+        .section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
 
-    <a class="skip-link" href="#maincontent">Skip to main content</a>
+    <div class="top-bar">FREE SHIPPING ON ALL ORDERS OVER $100</div>
 
-    <div class="container">
-        <header>
-            <h1>Open Source Open Road</h1>
-        </header>
+    <header>Open Source Open Road</header>
 
-        <nav>
-            <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="customize.html">Customize</a></li>
-                <li><a href="designs.html">Shop Designs</a></li>
-                <li><a href="diy.html">DIY Instructions</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <button class="menu-toggle" aria-label="Open Navigation">☰</button>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Customize</a>
+            <a href="#">Shop Designs</a>
+            <a href="#">DIY Instructions</a>
+        </div>
+    </nav>
 
-        <main id="maincontent">
-            <h2>About</h2>
-            <p>
-                Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. 
-                Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. 
-                Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
-            </p>
-        </main>
-    </div>
+    <section class="hero">
+        <h1>VAN CONVERSIONS MADE EASY</h1>
+        <p>Customizable, open-source van layouts for everyone.</p>
+        <button>Shop Now →</button>
+    </section>
+
+    <section class="section">
+        <h2>SPRING ESSENTIALS</h2>
+        <div class="gallery">
+            <img src="van1.jpg" alt="Van Interior">
+            <img src="van2.jpg" alt="Van Kitchen">
+            <img src="van3.jpg" alt="Van Workspace">
+        </div>
+    </section>
 
     <script>
-        // Mobile Menu Toggle
-        document.querySelector(".menu-toggle").addEventListener("click", function() {
-            document.querySelector("nav ul").classList.toggle("open");
+        document.querySelector(".menu-toggle").addEventListener("click", function () {
+            document.querySelector(".nav-links").classList.toggle("open");
         });
     </script>
 

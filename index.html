@@ -4,27 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open Source Open Road</title>
-  <!-- Import Google Fonts -->
+  <!-- Import Google Fonts: Playfair Display for headings and Open Sans for body text -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Reset */
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     /* Base Styles */
     body {
-      font-family: 'Open Sans', Arial, sans-serif;
-      color: #333;
+      font-family: 'Open Sans', sans-serif;
       background-color: #fff;
+      color: #333;
       line-height: 1.6;
     }
-
     .container {
-      max-width: 100%;
-      padding: 0 16px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     /* Accessibility: Skip Link */
@@ -32,9 +32,9 @@
       position: absolute;
       top: -40px;
       left: 0;
-      padding: 10px;
       background: #333;
       color: #fff;
+      padding: 10px;
       z-index: 100;
     }
     .skip-link:focus {
@@ -44,63 +44,61 @@
     /* Header */
     header {
       text-align: center;
-      padding: 20px 0;
+      padding: 40px 0;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      letter-spacing: 1px;
+      font-size: 3rem;
+      letter-spacing: 2px;
     }
 
     /* Navigation */
     nav {
       background-color: #356859; /* Deep green */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px 0;
       position: relative;
     }
     nav ul {
       list-style: none;
-      padding: 0;
-      margin: 0;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
     }
     nav ul li {
-      margin: 5px;
+      margin: 0 10px;
     }
     nav ul li a {
-      text-decoration: none;
       color: #fff;
-      padding: 10px 15px;
-      display: block;
+      text-decoration: none;
+      font-size: 1.1rem;
       font-weight: 600;
-      transition: opacity 0.3s ease;
+      transition: color 0.3s ease;
     }
     nav ul li a:hover {
-      opacity: 0.8;
+      color: #c0d6df;
     }
-
     /* Mobile Menu Toggle */
     .menu-toggle {
       display: none;
+      position: absolute;
+      left: 20px;
+      top: 10px;
       background: none;
       border: none;
-      font-size: 24px;
       color: #fff;
+      font-size: 2rem;
       cursor: pointer;
-      padding: 10px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
     }
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
       nav ul {
-        display: none;
         flex-direction: column;
+        display: none;
         width: 100%;
         text-align: center;
         background-color: #356859;
@@ -112,51 +110,60 @@
         display: flex;
       }
       nav ul li {
-        margin: 0;
+        margin: 10px 0;
       }
       nav ul li a {
         border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 10px;
       }
     }
 
     /* Hero Section */
     .hero {
-      position: relative;
-      width: 100%;
-      height: 50vh; /* Adjust height as needed */
-      background: url('hero-van.jpg') no-repeat center center/cover;
+      height: 50vh; /* Adjust as needed */
+      background: url('hero-van.jpg') center center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
+    }
+    /* Dark overlay for readability */
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
     }
     .hero-content {
+      position: relative;
       color: #fff;
-      background: rgba(0, 0, 0, 0.4);
       padding: 20px;
-      border-radius: 4px;
+      z-index: 1;
     }
     .hero-content h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
     .hero-content p {
-      font-size: 1rem;
+      font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto;
     }
 
     /* Main Content */
     main {
-      padding: 20px;
+      padding: 40px 0;
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
     }
     main h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 2rem;
       margin-bottom: 20px;
     }
     main p {
@@ -166,9 +173,7 @@
   </style>
 </head>
 <body>
-
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-
   <div class="container">
     <!-- Header -->
     <header>
@@ -199,18 +204,19 @@
     <main id="maincontent">
       <h2>About</h2>
       <p>
-        Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs.
-        Our project makes van conversions easier by creating simple, adaptable designs that anyone can use.
-        Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van
-        into the adventure-ready home of your dreams.
+        Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. 
+        Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. 
+        Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
       </p>
     </main>
   </div>
 
   <!-- Mobile Menu Toggle Script -->
   <script>
-    document.querySelector(".menu-toggle").addEventListener("click", function() {
-      document.querySelector("nav ul").classList.toggle("open");
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+    menuToggle.addEventListener('click', () => {
+      navUl.classList.toggle('open');
     });
   </script>
 </body>

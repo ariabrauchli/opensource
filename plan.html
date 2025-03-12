@@ -1,136 +1,148 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designs | Open Source Open Road</title>
-    <link rel="stylesheet" href="harrystyles.css" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-          
-        }
-        header {
-            
-            padding: 3rem;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-      
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        .design-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            padding: 10px;
-        }
-        .design-item {
-            background: #fff;
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .design-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .download-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .download-btn:hover {
-            background: #555;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designs | Open Source Open Road</title>
+  <link rel="stylesheet" href="harrystyles.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px;
+    }
+      p{
+          margin: 0;
+      }
+    header {
+      padding: 3rem;
+      text-align: center;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    h1,
+    h2 {
+      text-align: center;
+    }
+    .three-box-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+      padding: 10px;
+    }
+    .design-item {
+      background: #fff;
+      padding: 15px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .design-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .download-btn:hover {
+      background: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #333;
+      color: white;
+    }
+    /* Style adjustments for the BIY contact form */
+    .biy-contact label,
+    .biy-contact input,
+    .biy-contact textarea,
+    .biy-contact button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .biy-contact input,
+    .biy-contact textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .biy-contact button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .biy-contact button:hover {
+      background: #555;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="plan.html">Plan Your Van</a></li>
-          <li><a href="diy.html">DIY Tips</a></li>
-        </ul>
-    </nav>
-<header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="plan.html">Plan Your Van</a></li>
+      <li><a href="diy.html">DIY Tips</a></li>
+    </ul>
+  </nav>
+  <header>
     <h1>Plan Your Van</h1>
-    <p> Begin here in our "Plan Your Van" tab where you use our free web based Onshape CAD tool to customize your Rock N Roll Bed. Once your design is ready you have two options. The DIY option lets you download free CAD cut files so you can mill and assemble your bed yourself. We also provide a comprehensive Tips and Tricks page with a detailed assembly guide. Alternatively, choose BIY, which stands for Build It for You, where we handle the milling and deliver your fully assembled bed. </p>
-</header>
-
-<div class="container">
-    <h2>Rock'n'Roll bed</h2>
-    <div class="design-grid">
-        
-        <div class="clickable-div">
-            <img src="https://i.imgur.com/EM015DX.png" alt="Rock'n'Roll Bed">
-            <h3>Onshape CAD File</h3>
-            <p>Customize your bed here!</p>
-            <a href="https://cad.onshape.com/documents/c4553c52f764441bfe85385e/w/4d14743f9449701922715be3/e/56bcc4af8532f57f1c700da2" class="download-btn" target="_blank">
-    View on Onshape
-  </a>
-        </div>
-        <script>
-    // Add an event listener to the div
-    document.getElementById("clickable-div").addEventListener("click", function() {
-      window.location.href = "https://cad.onshape.com/documents/c4553c52f764441bfe85385e/w/4d14743f9449701922715be3/e/56bcc4af8532f57f1c700da2";
-    });
-  </script>
-        
-    </div>
-</div>
-    <div class="design-item">
-             <h3>DIY</h3>
-             <p>A space-saving foldable table for multi-use setups.</p>
-             <a href="placeholder" class="download-btn" download>Download Cut Files</a>
-</div>
-    
-<div class="biy-contact">
-  <h2>Contact us for BIY</h2>
-  <form action="https://formspree.io/f/mdkeopeg" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-    
-    <button type="submit">Submit</button>
-  </form>
-
-</div>
-
-<footer>
-    <p>&copy; 2025 Open Source Open Road | All Rights Reserved</p>
-</footer>
-
-</body>
-</html>
+    <p>
+      Begin here in our "Plan Your Van" tab where you use our free web based Onshape CAD tool to customize your Rock N Roll Bed. Once your design is ready you have two options. The DIY option lets you download free CAD cut files so you can mill and assemble your bed yourself. We also provide a comprehensive Tips and Tricks page with a detailed assembly guide. Alternatively, choose BIY, which stands for Build It for You, where we handle the milling and deliver your fully assembled bed.
+    </p>
+  </header>
+  <div class="container">
+    <div class="three-box-container">
+      <div class="design-item">
+        <h3>Rock'n'Roll Bed</h3>
+        <img src="https://i.imgur.com/EM015DX.png" alt="Rock'n'Roll Bed" />
+        <p>Customize your bed here!</p>
+        <a href="https://cad.onshape.com/documents/c4553c52f764441bfe85385e/w/4d14743f9449701922715be3/e/56bcc4af8532f57f1c700da2" class="download-btn" target="_blank">View on Onshape</a>
+      </div>
+      <div class="design-item">
+        <h3>DIY</h3>
+        <p>A space-saving foldable table for multi-use setups.</p>
+        <a href="placeholder" class="download-btn" download>Download Cut Files</a>
+      </div>
+      <div class="design-item biy-contact">
+        <h2>Contact us for BIY</h2>
+        <form action="https://formspree.io/f/mdkeopeg" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" requir

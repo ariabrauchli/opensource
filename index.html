@@ -4,16 +4,99 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OpenSource</title>
+    <!-- Importing a modern font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="harrystyles.css" />
     <style>
-      /* Mobile-first adjustments */
+      /* Global Base Styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: #007bff;
+      }
+      /* Skip Link for Accessibility */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #007bff;
+        color: #fff;
+        padding: 8px 12px;
+        z-index: 100;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
+      /* Container */
       .container {
-        width: 100%;
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
         padding: 1rem;
         box-sizing: border-box;
       }
-     
-      /* Desktop view adjustments */
+      /* Header Styling */
+      header {
+        text-align: center;
+        padding: 2rem 0;
+      }
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        animation: fadeInDown 1s ease-out;
+      }
+      /* Navigation Styling */
+      nav {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      nav li {
+        margin: 0.5rem 0;
+      }
+      nav a {
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+      }
+      nav a:hover {
+        background: #007bff;
+        color: #fff;
+      }
+      /* Main Content Styling */
+      main {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      main h2 {
+        margin-top: 0;
+        color: #007bff;
+      }
+      /* Mobile-first adjustments */
       @media (min-width: 600px) {
         nav ul {
           flex-direction: row;
@@ -21,6 +104,17 @@
         }
         nav li {
           margin: 0 1rem;
+        }
+      }
+      /* Animation keyframes */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
     </style>
@@ -38,11 +132,16 @@
           <li><a href="plan.html">Plan Your Van</a></li>
           <li><a href="diy.html">DIY Tips</a></li>
         </ul>
-    </nav>
+      </nav>
       <main id="maincontent">
         <h2>About</h2>
         <p>
-          Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
+          Van life is growing fast, but DIY conversions can be tough and often
+          end up with wasted space or impractical designs. Our project makes van
+          conversions easier by creating simple, adaptable designs that anyone
+          can use. Whether you’re cutting parts at a local maker space or ordering
+          them pre-made, we’re here to help turn your van into the adventure-ready
+          home of your dreams.
         </p>
       </main>
     </div>

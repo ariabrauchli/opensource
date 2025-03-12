@@ -1,100 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenSource</title>
-    <link rel="stylesheet" href="css/harrystyles.css" />
+/* harrystyles.css */
 
-    <style>
-      /* Skip link visibility fix */
-      .skip-link {
-        position: absolute;
-        top: -40px;
-        left: 10px;
-        background: #37c0fb;
-        color: white;
-        padding: 0.5rem;
-        text-decoration: none;
-        transition: top 0.3s ease-in-out;
-      }
-      
-      .skip-link:focus {
-        top: 10px;
-      }
+/* Reset & Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      /* Mobile-first adjustments */
-      .container {
-        width: 100%;
-        padding: 1rem;
-        box-sizing: border-box;
-      }
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #f7f7f7;
+  color: #474747;
+  line-height: 1.6;
+}
 
-      nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+/* Container */
+.container {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+}
 
-      nav li {
-        margin: 0.5rem;
-      }
+/* Skip Link (Accessibility) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: #37c0fb;
+  color: #fff;
+  padding: 0.5rem;
+  text-decoration: none;
+  transition: top 0.3s ease;
+}
 
-      nav a {
-        text-decoration: none;
-        font-weight: bold;
-        color: #333;
-        padding: 0.5rem;
-        transition: color 0.3s ease-in-out;
-      }
+.skip-link:focus {
+  top: 10px;
+}
 
-      nav a:hover {
-        color: #37c0fb;
-      }
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem 0;
+}
 
-      /* Desktop view adjustments */
-      @media (min-width: 600px) {
-        nav ul {
-          flex-direction: row;
-          justify-content: center;
-        }
-        nav li {
-          margin: 0 1rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <a class="skip-link" href="#maincontent">Skip to main content</a>
-    <div class="container">
-      <header>
-        <h1>Open Source Open Road</h1>
-      </header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="plan.html">Plan Your Van</a></li>
-          <li><a href="diy.html">DIY Tips</a></li>
-        </ul>
-      </nav>
-      <main id="maincontent">
-        <h2>About</h2>
-        <p>
-          Van life is growing fast, but DIY conversions can be tough and often end up with wasted space or impractical designs. Our project makes van conversions easier by creating simple, adaptable designs that anyone can use. Whether you’re cutting parts at a local maker space or ordering them pre-made, we’re here to help turn your van into the adventure-ready home of your dreams.
-        </p>
-      </main>
-    </div>
+header h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
 
-    <!-- JavaScript Files -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
-</html>
+/* Navigation */
+nav {
+  margin: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+nav li {
+  margin: 0.5rem 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #37c0fb;
+}
+
+/* Main Content */
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Headings & Paragraphs */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Responsive Adjustments */
+/* Desktop view: switch nav to horizontal layout */
+@media (min-width: 600px) {
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  nav li {
+    margin: 0 1rem;
+  }
+}

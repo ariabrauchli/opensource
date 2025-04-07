@@ -1,1 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan Your Van | Open Source Open Road</title>
+    <!-- Importing a modern font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="harrystyles.css" />
+    <style>
+      /* Basic resets and font */
+      body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+      /* Nav styles */
+      nav {
+        background: #f0f0f0;
+        padding: 10px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li {
+        margin: 0 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+      }
+      /* Image section directly under the nav */
+      .image-section {
+        width: 100%;
+      }
+      .image-section img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      /* Container for page content */
+      .container {
+        width: 80%;
+        margin: 20px auto;
+      }
+      header {
+        text-align: center;
+        padding: 20px 0;
+      }
+      /* Three box grid for Plan Your Van */
+      .three-box-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .design-item {
+        background: #fff;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Allow box height to adapt to content */
+        height: auto;
+        overflow: visible;
+      }
+      .design-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .download-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .download-btn:hover {
+        background: #555;
+      }
+      /* BIY contact form specific styles */
+      .biy-contact form label,
+      .biy-contact form input,
+      .biy-contact form textarea,
+      .biy-contact form button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .biy-contact form input,
+      .biy-contact form textarea {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .biy-contact form button {
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .biy-contact form button:hover {
+        background: #555;
+      }
+      /* Footer styles */
+      footer {
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .three-box-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="plan.html">Browse Designs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
 
+   
+
+    <!-- Main Content Container -->
+    <div class="container">
+      <header>
+        <h1 style="font-size: 4em !important;">Rock'n'Roll Bed</h1>
+        <p>
+          later
+        </p>
+      </header>
+
+      <!-- Three Box Grid -->
+      <div class="three-box-container">
+        <!-- Rock'n'Roll Bed Box -->
+        <div class="design-item">
+          <h3>Rock'n'Roll Bed</h3>
+          <img src="https://i.imgur.com/EM015DX.png" alt="Rock'n'Roll Bed">
+      </div>
+
+        <!-- DIY Box -->
+        <div class="design-item">
+          <h3>DIY</h3>
+          <p>A space-saving foldable table for multi-use setups.</p>
+          <a href="placeholder" class="download-btn" download>Download Cut Files</a>
+        </div>
+
+        <!-- BIY Contact Box -->
+        <div class="design-item biy-contact">
+          <h2>Contact us for BIY</h2>
+          <form action="https://formspree.io/f/mdkeopeg" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Open Source Open Road | All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

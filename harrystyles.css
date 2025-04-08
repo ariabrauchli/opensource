@@ -87,7 +87,7 @@
         font-family: "montserrat", sans-serif;
       }
       /* Rocknroll tabs */
-      #wrapper .container {
+      #wrapper .tab {
             position: absolute;
             top: 0;
             left: 0;
@@ -95,7 +95,7 @@
             height: 100%;
             display: none;
       }
-      #wrapper #about.container {
+      #wrapper #about.tab {
             display: block;
       }
       /* Mobile-first adjustments */

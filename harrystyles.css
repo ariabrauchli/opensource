@@ -1,5 +1,8 @@
 /* Global Base Styles */
 @import url("https://use.typekit.net/lxv4dcl.css");
+      html {
+            min-height: 100%;
+      }
       body {
         margin: 0;
         padding: 0;

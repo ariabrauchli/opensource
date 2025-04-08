@@ -98,7 +98,7 @@
             height: 100%;
             display: none;
       }
-      #wrapper #about.tab {
+      #wrapper .tab.shown {
             display: block;
       }
       /* Mobile-first adjustments */

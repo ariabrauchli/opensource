@@ -39,6 +39,9 @@
         padding: 1rem;
         box-sizing: border-box;
       }
+.rocknroll h1 {
+  font-family: "Montserrat", sans-serif;
+}
       /* Header Styling */
       header {
         text-align: center;

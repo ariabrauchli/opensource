@@ -2,8 +2,8 @@
 	$(document).ready(function() {
 		$('ul.tablinks a').on('click', function(
       var tabID = $(this).data('id');
-      $('#wrapper .container').hide();
-      $('#wrapper .container#' + tabID).show();
+      $('#wrapper .tab').hide();
+      $('#wrapper .tab#' + tabID).show();
 		)};
 	});
 })(jQuery);

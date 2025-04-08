@@ -103,27 +103,38 @@
         background: #555;
       }
       /* BIY contact form specific styles */
-      .biy-contact form label,
-      .biy-contact form input,
-      .biy-contact form textarea,
-      .biy-contact form button {
+      .biy-contact form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .biy-contact form label {
         display: block;
-        width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+        font-weight: bold;
       }
       .biy-contact form input,
       .biy-contact form textarea {
-        padding: 8px;
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
         border: 1px solid #ccc;
         border-radius: 4px;
+        box-sizing: border-box;
       }
       .biy-contact form button {
+        display: block;
+        width: 100%;
         background: #333;
         color: #fff;
         border: none;
-        padding: 10px;
+        padding: 12px;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
       }
       .biy-contact form button:hover {
         background: #555;

@@ -12,7 +12,18 @@
     <link rel="stylesheet" href="harrystyles.css" />
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/scripts.js"></script>
+<!--     <script src="js/scripts.js"></script> -->
+    <script>
+      (function($) {
+	$(document).ready(function() {
+		$('ul.tablinks a').on('click', function(
+      let tabID = $(this).data('id');
+      $('#wrapper .tab').removeClass('shown');
+      $('#wrapper .tab#' + tabID).addClass('shown');
+		)};
+	});
+})(jQuery);
+    </script>
     
     <style>
       /* Basic resets and font */

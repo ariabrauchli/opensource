@@ -21,37 +21,6 @@
       $('#wrapper .tab').removeClass('shown');
       $('#wrapper .tab#' + tabID).addClass('shown');
 		});
-
-		// Fade-in effect for content
-		$('.container').hide().fadeIn(1000);
-
-		// Hover effect for navigation links
-		$('nav ul li a').hover(
-		  function() {
-			$(this).css('color', '#555');
-			$(this).animate({ paddingLeft: '10px' }, 200);
-		  },
-		  function() {
-			$(this).css('color', '#333');
-			$(this).animate({ paddingLeft: '0' }, 200);
-		  }
-		);
-
-		// Form input animation
-		$('.biy-contact form input, .biy-contact form textarea').focus(function() {
-		  $(this).animate({ borderColor: '#555' }, 200);
-		}).blur(function() {
-		  $(this).animate({ borderColor: '#ccc' }, 200);
-		});
-
-		// Smooth scroll for navigation
-		$('nav ul li a').on('click', function(e) {
-		  e.preventDefault();
-		  let target = $(this).attr('href');
-		  $('html, body').animate({
-			scrollTop: $(target).offset().top
-		  }, 500);
-		});
 	});
 })(jQuery);
     </script>
@@ -103,8 +72,14 @@
         max-width: 500px;
         width: 100%;
         height: auto;
-        margin: 0 auto;
+        margin: 0 auto 30px auto;
         display: block;
+      }
+      header p {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
       }
       /* Three box grid for Plan Your Van */
       .three-box-container {
@@ -142,13 +117,13 @@
       }
       /* BIY contact form specific styles */
       .biy-contact form {
-        max-width: 400px;
+        max-width: 350px;
         margin: 0 auto;
-        padding: 15px;
+        padding: 10px;
       }
       .biy-contact form label {
         display: block;
-        margin-bottom: 3px;
+        margin-bottom: 2px;
         text-align: left;
         font-weight: 500;
       }
@@ -156,8 +131,8 @@
       .biy-contact form textarea {
         display: block;
         width: 100%;
-        padding: 8px;
-        margin-bottom: 15px;
+        padding: 6px;
+        margin-bottom: 12px;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
@@ -168,11 +143,11 @@
         background: #333;
         color: #fff;
         border: none;
-        padding: 10px;
+        padding: 12px;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: bold;
       }
       .biy-contact form button:hover {
         background: #555;

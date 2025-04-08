@@ -87,6 +87,9 @@
         font-family: "montserrat", sans-serif;
       }
       /* Rocknroll tabs */
+      #wrapper {
+            position: relative;
+      }
       #wrapper .tab {
             position: absolute;
             top: 0;

@@ -10,6 +10,52 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="harrystyles.css" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!--     <script src="js/scripts.js"></script> -->
+    <script>
+      (function($) {
+	$(document).ready(function() {
+		$('ul.tablinks a').on('click', function() {
+      let tabID = $(this).data('id');
+      $('#wrapper .tab').removeClass('shown');
+      $('#wrapper .tab#' + tabID).addClass('shown');
+		});
+
+		// Fade-in effect for content
+		$('.container').hide().fadeIn(1000);
+
+		// Hover effect for navigation links
+		$('nav ul li a').hover(
+		  function() {
+			$(this).css('color', '#555');
+			$(this).animate({ paddingLeft: '10px' }, 200);
+		  },
+		  function() {
+			$(this).css('color', '#333');
+			$(this).animate({ paddingLeft: '0' }, 200);
+		  }
+		);
+
+		// Form input animation
+		$('.biy-contact form input, .biy-contact form textarea').focus(function() {
+		  $(this).animate({ borderColor: '#555' }, 200);
+		}).blur(function() {
+		  $(this).animate({ borderColor: '#ccc' }, 200);
+		});
+
+		// Smooth scroll for navigation
+		$('nav ul li a').on('click', function(e) {
+		  e.preventDefault();
+		  let target = $(this).attr('href');
+		  $('html, body').animate({
+			scrollTop: $(target).offset().top
+		  }, 500);
+		});
+	});
+})(jQuery);
+    </script>
+    
     <style>
       /* Basic resets and font */
       body {
@@ -53,6 +99,13 @@
         text-align: center;
         padding: 20px 0;
       }
+      header img {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+      }
       /* Three box grid for Plan Your Van */
       .three-box-container {
         display: grid;
@@ -88,27 +141,38 @@
         background: #555;
       }
       /* BIY contact form specific styles */
-      .biy-contact form label,
-      .biy-contact form input,
-      .biy-contact form textarea,
-      .biy-contact form button {
+      .biy-contact form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 15px;
+      }
+      .biy-contact form label {
         display: block;
-        width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 3px;
+        text-align: left;
+        font-weight: 500;
       }
       .biy-contact form input,
       .biy-contact form textarea {
+        display: block;
+        width: 100%;
         padding: 8px;
+        margin-bottom: 15px;
         border: 1px solid #ccc;
         border-radius: 4px;
+        box-sizing: border-box;
       }
       .biy-contact form button {
+        display: block;
+        width: 100%;
         background: #333;
         color: #fff;
         border: none;
         padding: 10px;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
       }
       .biy-contact form button:hover {
         background: #555;
@@ -142,26 +206,55 @@
 
     <!-- Main Content Container -->
     <div class="container">
+
+      <!-- Tab navigation -->
+      <ul class="tablinks">
+        <li><a data-id="about" href="#">Rock'n'Roll Bed</a></li>
+        <li><a data-id="assembly" href="#">Assembly</a></li>
+        <li><a data-id="order" href="#">Order</a></li>
+      </ul>
+
+    <!-- Tabs -->
+    <div id="wrapper">
+    <div id="about" class="tab shown">
       <header>
-        <h1 style="font-size: 4em !important;">Plan Your Van</h1>
+        <h2 style="font-size: 4em !important;">About the Rock'n'Roll Bed</h2>
         <p>
-          Built for movement, made to transform your space. Discover design that brings comfort, flexibility, and a sense of home to life on the road.
-         </p>
+	<img src="https://i.imgur.com/048YXcb.gif" alt="Rock n roll bed demo">
+          Meet the rock 'n' roll bed, your newest travel companion built for both comfort and convenience. By day, it's a sturdy, stylish seat; by night, it transforms into a cozy bed in seconds. Perfect for vanlifers, weekend explorers, or anyone chasing freedom on the open road. Our custom rock 'n' roll beds are handcrafted to fit your van and your vibe, combining smart design with personal style. Order yours today!
+        </p>
       </header>
+    </div>
+     <div id="assembly" class="tab">
+      <header>
+        <h2 style="font-size: 4em !important;">Assembly Instructions</h2>
+        <p>
+          later
+        </p>
+      </header>
+    </div>
+     <div id="order" class="tab">
+      <header>
+        <h2 style="font-size: 4em !important;">Order Here</h2>
+        <div class="design-item biy-contact">
+          
+          <form action="https://formspree.io/f/mdkeopeg" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </header>
+    </div>
+    </div>
 
-      <!-- Three Box Grid -->
-      <div class="three-box-container">
-        <!-- Rock'n'Roll Bed Box -->
-        <a href="rocknroll.html">
-        <div class="design-item">
-          <h3>Rock'n'Roll Bed</h3>
-          <img src="https://i.imgur.com/EM015DX.png" alt="Rock'n'Roll Bed">
-          <p>View the Rock'n'Roll Bed</p>
-          </div>
-          </a>
-
-        
-      </div>
     </div>
 
     <!-- Footer -->

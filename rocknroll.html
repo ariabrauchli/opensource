@@ -21,6 +21,80 @@
       $('#wrapper .tab').removeClass('shown');
       $('#wrapper .tab#' + tabID).addClass('shown');
 		});
+
+    // Fade-in effect for content
+    $('.container').hide().fadeIn(1000);
+
+    // Hover effect for navigation links
+    $('nav ul li a').hover(
+      function() {
+        $(this).css('color', '#555');
+        $(this).animate({ paddingLeft: '10px' }, 200);
+      },
+      function() {
+        $(this).css('color', '#333');
+        $(this).animate({ paddingLeft: '0' }, 200);
+      }
+    );
+
+    // Form input animation
+    $('.biy-contact form input, .biy-contact form textarea').focus(function() {
+      $(this).animate({ borderColor: '#555' }, 200);
+    }).blur(function() {
+      $(this).animate({ borderColor: '#ccc' }, 200);
+    });
+
+    // Smooth scroll for navigation
+    $('nav ul li a').on('click', function(e) {
+      e.preventDefault();
+      let target = $(this).attr('href');
+      $('html, body').animate({
+        scrollTop: $(target).offset().top
+      }, 500);
+    });
+
+    // Parallax effect for the content box
+    $(window).scroll(function() {
+      let scrollPosition = $(window).scrollTop();
+      $('.content-box').css({
+        'transform': 'translateY(' + (scrollPosition * 0.1) + 'px)'
+      });
+    });
+
+    // Animate the GIF on hover
+    $('.content-box img').hover(
+      function() {
+        $(this).animate({ scale: 1.05 }, 300);
+      },
+      function() {
+        $(this).animate({ scale: 1 }, 300);
+      }
+    );
+
+    // Button hover effect
+    $('.biy-contact form button').hover(
+      function() {
+        $(this).animate({ backgroundColor: '#555' }, 200);
+      },
+      function() {
+        $(this).animate({ backgroundColor: '#333' }, 200);
+      }
+    );
+
+    // Add a typing effect to the headings
+    $('h2').each(function() {
+      let text = $(this).text();
+      $(this).text('');
+      let i = 0;
+      let typing = setInterval(function() {
+        if (i < text.length) {
+          $(this).text($(this).text() + text.charAt(i));
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }.bind(this), 100);
+    });
 	});
 })(jQuery);
     </script>
@@ -70,16 +144,18 @@
       }
       .content-box {
         background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        margin: 30px auto;
+        max-width: 800px;
+        border: 1px solid #eee;
       }
       header img {
         max-width: 500px;
         width: 100%;
         height: auto;
-        margin: 0 auto 30px auto;
+        margin: 0 auto 40px auto;
         display: block;
       }
       header p {
@@ -87,6 +163,7 @@
         max-width: 800px;
         margin: 0 auto;
         line-height: 1.6;
+        padding: 0 20px;
       }
       /* Three box grid for Plan Your Van */
       .three-box-container {
@@ -124,9 +201,9 @@
       }
       /* BIY contact form specific styles */
       .biy-contact form {
-        max-width: 350px;
+        max-width: 300px;
         margin: 0 auto;
-        padding: 10px;
+        padding: 8px;
       }
       .biy-contact form label {
         display: block;
@@ -138,8 +215,8 @@
       .biy-contact form textarea {
         display: block;
         width: 100%;
-        padding: 6px;
-        margin-bottom: 12px;
+        padding: 5px;
+        margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;

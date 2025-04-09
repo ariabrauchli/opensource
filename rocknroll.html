@@ -157,6 +157,15 @@
         margin: 0 auto;
         max-width: 50%; /* Adjust the size as needed */
         height: auto;
+        padding-bottom: 40px; /* Increased padding below the GIF */
+      }
+      /* New style for the white box */
+      .white-box {
+        background-color: #fff;
+        padding: 30px; /* Padding for the white box */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
       }
     </style>
   </head>
@@ -186,13 +195,15 @@
     <!-- Tabs -->
     <div id="wrapper">
     <div id="about" class="tab shown">
-      <header>
-        <h2 style="font-size: 4em !important;">About the Rock'n'Roll Bed</h2>
-        <p>
-          <img src="https://i.imgur.com/048YXcb.gif" alt="Rock n roll bed demo" class="centered-gif">
-          Meet the rock 'n' roll bed, your newest travel companion built for both comfort and convenience. By day, it's a sturdy, stylish seat; by night, it transforms into a cozy bed in seconds. Perfect for vanlifers, weekend explorers, or anyone chasing freedom on the open road. Our custom rock 'n' roll beds are handcrafted to fit your van and your vibe, combining smart design with personal style. Order yours today!
-        </p>
-      </header>
+      <div class="white-box">
+        <header>
+          <h2 style="font-size: 4em !important;">About the Rock'n'Roll Bed</h2>
+          <p>
+            <img src="https://i.imgur.com/048YXcb.gif" alt="Rock n roll bed demo" class="centered-gif">
+            Meet the rock 'n' roll bed, your newest travel companion built for both comfort and convenience. By day, it's a sturdy, stylish seat; by night, it transforms into a cozy bed in seconds. Perfect for vanlifers, weekend explorers, or anyone chasing freedom on the open road. Our custom rock 'n' roll beds are handcrafted to fit your van and your vibe, combining smart design with personal style. Order yours today!
+          </p>
+        </header>
+      </div>
     </div>
      <div id="assembly" class="tab">
       <header>
@@ -232,3 +243,5 @@
     </footer>
   </body>
 </html>
+
+

@@ -16,10 +16,40 @@
     <script>
       (function($) {
 	$(document).ready(function() {
+		// Fade-in effect for the main content
+		$('.container').hide().fadeIn(2000);
+
+		// Smooth scroll for navigation links
+		$('nav ul li a').on('click', function(event) {
+			if (this.hash !== "") {
+				event.preventDefault();
+				const hash = this.hash;
+				$('html, body').animate({
+					scrollTop: $(hash).offset().top
+				}, 800, function() {
+					window.location.hash = hash;
+				});
+			}
+		});
+
+		// Tab switching logic with fade effect
 		$('ul.tablinks a').on('click', function() {
-      let tabID = $(this).data('id');
-      $('#wrapper .tab').removeClass('shown');
-      $('#wrapper .tab#' + tabID).addClass('shown');
+			let tabID = $(this).data('id');
+			$('#wrapper .tab').fadeOut(300, function() {
+				$(this).removeClass('shown');
+				$('#wrapper .tab#' + tabID).fadeIn(300).addClass('shown');
+			});
+		});
+
+		// Ripple effect on buttons
+		$('.biy-contact form button, .download-btn').on('click', function(e) {
+			let $ripple = $('<span class="ripple"></span>');
+			$(this).append($ripple);
+
+			let x = e.pageX - $(this).offset().left - $ripple.width() / 2;
+			let y = e.pageY - $(this).offset().top - $ripple.height() / 2;
+
+			$ripple.css({ top: y + 'px', left: x + 'px' }).addClass('rippleEffect');
 		});
 	});
 })(jQuery);
@@ -167,9 +197,43 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin: 20px 0;
       }
+      /* Parallax background */
+      .parallax {
+        background-image: url('your-image-url.jpg'); /* Replace with your image URL */
+        min-height: 400px; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      /* Typing animation */
+      .typing {
+        overflow: hidden;
+        border-right: .15em solid orange; /* Cursor */
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: .15em;
+        animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: orange; }
+      }
+      /* Ripple effect */
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
     </style>
   </head>
   <body>
+    <!-- Parallax Section -->
+    <div class="parallax"></div>
     <!-- Navigation Bar -->
     <nav>
       <ul>
@@ -197,7 +261,7 @@
     <div id="about" class="tab shown">
       <div class="white-box">
         <header>
-          <h2 style="font-size: 4em !important;">About the Rock'n'Roll Bed</h2>
+          <h2 class="typing">About the Rock'n'Roll Bed</h2>
           <p>
             <img src="https://i.imgur.com/048YXcb.gif" alt="Rock n roll bed demo" class="centered-gif">
             Meet the rock 'n' roll bed, your newest travel companion built for both comfort and convenience. By day, it's a sturdy, stylish seat; by night, it transforms into a cozy bed in seconds. Perfect for vanlifers, weekend explorers, or anyone chasing freedom on the open road. Our custom rock 'n' roll beds are handcrafted to fit your van and your vibe, combining smart design with personal style. Order yours today!

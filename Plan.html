@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan - Open Source Open Road</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #efe6dd;
+            color: #1b1b1b;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1b1b1b;
+            padding: 1rem;
+            z-index: 1000;
+            border-bottom: 2px solid #c08457;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #efe6dd;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #efe6dd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #c08457;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: #efe6dd;
+            font-size: 1.5rem;
+        }
+
+        /* Page content styles */
+        .page-content {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: visible;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1b1b1b;
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1b1b1b;
+            text-align: center;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background-color: #efe6dd;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: none;
+            border: none;
+        }
+
+        .content-section h2 {
+            color: #1b1b1b;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #c08457;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .content-section ul, .content-section ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background-color: rgba(192, 132, 87, 0.1);
+            border-left: 4px solid #c08457;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .step-number {
+            display: inline-block;
+            background-color: #c08457;
+            color: #efe6dd;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .materials-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .material-item {
+            background-color: rgba(192, 132, 87, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #c08457;
+        }
+
+        .material-item h4 {
+            color: #1b1b1b;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .material-item p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: none;
+            border: 1px solid #c08457;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(239, 230, 221, 0.9);
+            color: #1b1b1b;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            text-align: center;
+            border-top: 1px solid #c08457;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c08457;
+            color: #efe6dd;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #748cab;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #1b1b1b;
+                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .materials-list, .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">OSOR</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="About.html">Our Team</a>
+                <a href="Bed.html">Bed</a>
+                <a href="Contact.html">Contact</a>
+            </div>
+            <div class="hamburger">☰</div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="page-title">
+            <h1>Plan Your Build</h1>
+            <p>Your Ride. Your Rules. Your Rock & Roll Bed.</p>
+        </div>
+
+        <div class="content-section">
+            <p>Turn your vehicle into a fully functional living space. Our 3-in-1 Rock and Roll Bed is custom-built to fit your van or SUV perfectly — and planning your build is easier than ever.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Step 1: Measure Like a Pro</h2>
+            <p>All you need is a tape measure, a buddy, and a dream.</p>
+            <p>Use our step-by-step instructional video to take accurate measurements of your vehicle. We'll guide you through exactly what we need — no guesswork required. You'll be measuring the length, width, and interior height to ensure a perfect fit for both lounging and sleeping.</p>
+            <div class="highlight-box">
+                <p>"Measure twice, lounge once."</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Step 2: Submit Your Specs</h2>
+            <p>Custom fit starts with custom input.</p>
+            <p>Once you've gathered your dimensions, enter them into our measurement form. We'll take it from there — designing a Rock and Roll Bed that maximizes comfort and function for your exact setup.</p>
+            <div class="highlight-box">
+                <p>"Custom comfort delivered to your door? Yeah, we do that."</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Step 3: Easy Assembly</h2>
+            <p>Minimal tools. Maximum satisfaction.</p>
+            <p>When your custom kit arrives, it's pre-cut, labeled, and ready to go. Using just a few nuts and bolts (and maybe a wrench), follow along with our simple assembly video to complete your build in under an hour.</p>
+            <div class="highlight-box">
+                <p>"Build it faster than your coffee gets cold."</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Step 4: Lounge, Roll, Repeat</h2>
+            <p>One system. Three modes. Infinite adventures.</p>
+            <p>Once built, your Rock and Roll Bed easily transforms from dual-sided couch to lounger to full-length bed — giving you flexibility, comfort, and style all in one streamlined design.</p>
+            <div class="highlight-box">
+                <p>"From nap zone to chill zone to sleep zone — all in one ride."</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Need Help?</h2>
+            <p>If you have any questions about planning your build or need assistance with measurements, our team is here to help!</p>
+            <p>Check out our <a href="About.html" style="color: #c08457;">About</a> page to learn more about the team behind Open Source Open Road, or visit our <a href="Bed.html" style="color: #c08457;">Bed</a> page to see a 3D model of the Rock & Roll Bed.</p>
+            <a href="Bed.html" class="cta-button">View 3D Model</a>
+        </div>
+    </main>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 

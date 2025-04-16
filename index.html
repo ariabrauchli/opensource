@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Open Road</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #efe6dd;
+            color: #1b1b1b;
+        }
+
+        /* Video background container */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(27, 27, 27, 0.9);
+            padding: 1rem;
+            z-index: 1000;
+            border-bottom: 2px solid #c08457;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #efe6dd;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #efe6dd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #c08457;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: #efe6dd;
+            font-size: 1.5rem;
+        }
+
+        /* Hero content styles */
+        .hero-content {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            color: #efe6dd;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #efe6dd;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(27, 27, 27, 0.8);
+                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Fallback for browsers that don't support video */
+        @media (max-width: 480px) {
+            .video-container {
+                background: linear-gradient(45deg, #efe6dd, #748cab);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo">OSOR</a>
+            <div class="nav-links">
+                <a href="About.html">Our Team</a>
+                <a href="Plan.html">Plan</a>
+                <a href="Bed.html">Bed</a>
+                <a href="Contact.html">Contact</a>
+            </div>
+            <div class="hamburger">☰</div>
+        </nav>
+    </header>
+
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="DVid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <main class="hero-content">
+        <h1>Open Source Open Road</h1>
+        <p>Building the Future of Automotive Innovation</p>
+    </main>
+</body>
+</html>

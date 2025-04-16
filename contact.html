@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Open Source Open Road</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-color: #efe6dd;
+        color: #1b1b1b;
+      }
+
+      /* Header styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #1b1b1b;
+        padding: 1rem;
+        z-index: 1000;
+        border-bottom: 2px solid #748cab;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        color: #f2efdf;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #f2efdf;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover, .nav-links a.active {
+        color: #9ba7bf;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        color: #f2efdf;
+        font-size: 1.5rem;
+      }
+
+      /* Page content styles */
+      .page-content {
+        position: relative;
+        min-height: 100vh;
+        padding: 100px 2rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: visible;
+      }
+
+      .page-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #1b1b1b;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+      }
+
+      .page-title h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        color: #1b1b1b;
+        text-align: center;
+      }
+
+      .page-title p {
+        font-size: 1.4rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .content-section {
+        background-color: #efe6dd;
+        padding: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .content-section h2 {
+        color: #1b1b1b;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        padding-bottom: 0.8rem;
+      }
+
+      .content-section p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      /* Contact form styles */
+      .contact-form {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: #efe6dd;
+        padding: 3rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border: 1px solid #748cab;
+        margin-bottom: 3rem;
+      }
+
+      .contact-form p {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.8rem;
+        color: #1b1b1b;
+        font-weight: 500;
+        font-size: 1.1rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #748cab;
+        border-radius: 5px;
+        background-color: #efe6dd;
+        color: #1b1b1b;
+        font-size: 1.1rem;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #1b1b1b;
+      }
+
+      .form-group textarea {
+        min-height: 180px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background-color: #1b1b1b;
+        color: #efe6dd;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+        margin-top: 1rem;
+      }
+
+      .submit-btn:hover {
+        background-color: #748cab;
+      }
+
+      /* Contact info styles */
+      .contact-info {
+        margin-top: 4rem;
+        text-align: center;
+      }
+
+      .contact-info h3 {
+        color: #1b1b1b;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .contact-info p {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .contact-info a {
+        color: #1b1b1b;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info a:hover {
+        color: #748cab;
+      }
+
+      /* Media queries for responsiveness */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: rgba(47, 47, 47, 0.9);
+          padding: 1rem;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .page-title h1 {
+          font-size: 2.5rem;
+        }
+
+        .contact-form {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav-container">
+        <a href="index.html" class="logo">OSOR</a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="Plan.html">Plan</a>
+          <a href="About.html">About</a>
+          <a href="Bed.html">Bed</a>
+        </div>
+        <div class="hamburger">☰</div>
+      </nav>
+    </header>
+
+    <main class="page-content">
+      <div class="page-title">
+        <h1>Contact Us</h1>
+        <p>Have questions or feedback? We'd love to hear from you.</p>
+      </div>
+
+      <section class="contact-section">
+        <div class="contact-form">
+          <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+          
+          <form id="contact-form" action="https://formspree.io/f/xyzedaln" method="POST">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+          
+          <div id="success-message" style="display: none; margin-top: 2rem; padding: 1.5rem; background-color: rgba(116, 140, 171, 0.2); border-radius: 5px;">
+            <h3 style="margin-bottom: 1rem;">Thank you for your message!</h3>
+            <p>We'll get back to you as soon as possible.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Simple mobile menu toggle
+      document.querySelector('.hamburger').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+      });
+
+      // Form submission handling
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Here you would typically send the form data to your server
+        // For now, we'll just show the success message
+        document.getElementById('success-message').style.display = 'block';
+        this.reset();
+        
+        // Hide the success message after 5 seconds
+        setTimeout(function() {
+          document.getElementById('success-message').style.display = 'none';
+        }, 5000);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock & Roll Bed - Open Source Open Road</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #efe6dd;
+            color: #1b1b1b;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1b1b1b;
+            padding: 1rem;
+            z-index: 1000;
+            border-bottom: 2px solid #c08457;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #efe6dd;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #efe6dd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #c08457;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: #efe6dd;
+            font-size: 1.5rem;
+        }
+
+        /* Page content styles */
+        .page-content {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: visible;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1b1b1b;
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1b1b1b;
+            text-align: center;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background-color: #efe6dd;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            color: #1b1b1b;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Model section styles */
+        .model-section {
+            margin-top: 80px;
+            position: relative;
+            min-height: 400px;
+            overflow: visible;
+            perspective: 1000px;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .model-section h2 {
+            display: none;
+        }
+
+        .model-section h2:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #c08457;
+            margin: 0.5rem auto 0;
+            border-radius: 3px;
+        }
+
+        .project-item {
+            background-color: #efe6dd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: none;
+            border: none;
+        }
+
+        .project-item h3 {
+            color: #1b1b1b;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 400px;
+            background-color: #efe6dd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .model-description {
+            color: #1b1b1b;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .model-description h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1b1b1b;
+        }
+
+        .model-description h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            color: #1b1b1b;
+        }
+
+        .model-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .model-description ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .model-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        .product-highlights, .package-contents, .ideal-for, .product-specs {
+            margin-bottom: 2rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #1b1b1b;
+            font-size: 1.2rem;
+            text-align: center;
+            animation: bounce 2s infinite;
+            background-color: rgba(239, 230, 221, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(192, 132, 87, 0.3);
+            z-index: 10;
+        }
+
+        /* Features section styles */
+        .features-section {
+            margin: 4rem 0;
+        }
+
+        .features-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1b1b1b;
+            position: relative;
+        }
+
+        .features-section h2:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #c08457;
+            margin: 0.5rem auto 0;
+            border-radius: 3px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background-color: #efe6dd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #748cab;
+        }
+
+        .feature-card h3 {
+            color: #1b1b1b;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            margin-bottom: 0;
+        }
+
+        /* Specifications section styles */
+        .specs-section {
+            margin: 4rem 0;
+        }
+
+        .specs-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1b1b1b;
+            position: relative;
+        }
+
+        .specs-section h2:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #c08457;
+            margin: 0.5rem auto 0;
+            border-radius: 3px;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .specs-table th, .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #748cab;
+        }
+
+        .specs-table th {
+            background-color: rgba(116, 140, 171, 0.3);
+            color: #1b1b1b;
+        }
+
+        .specs-table tr:hover {
+            background-color: rgba(192, 132, 87, 0.1);
+        }
+
+        /* Compatibility section styles */
+        .compatibility-section {
+            margin: 4rem 0;
+        }
+
+        .compatibility-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1b1b1b;
+            position: relative;
+        }
+
+        .compatibility-section h2:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #c08457;
+            margin: 0.5rem auto 0;
+            border-radius: 3px;
+        }
+
+        .compatibility-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .compatibility-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Call to action styles */
+        .cta-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #1b1b1b;
+            color: #efe6dd;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #748cab;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(27, 27, 27, 0.9);
+                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .model-section {
+                height: 60vh;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">OSOR</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="Plan.html">Plan</a>
+                <a href="About.html">About</a>
+                <a href="Contact.html">Contact</a>
+            </div>
+            <div class="hamburger">☰</div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="page-title">
+            <h1>Rock & Roll Bed</h1>
+            <p>Experience our innovative foldable bed design for van life</p>
+        </div>
+
+        <section class="model-section">
+            <div class="project-item">
+                <model-viewer 
+                  src="BedFoldW.glb" 
+                  alt="Folded Bed 3D Model" 
+                  auto-rotate 
+                  camera-controls 
+                  ar>
+                </model-viewer>
+                <div class="model-description">
+                  <h2>Open Source Open Road – Custom-Fit 3-in-1 Rock and Roll Bed for Vans & SUVs</h2>
+                  <h3>Bed. Couch. Lounger. One System. Your Space, Reimagined.</h3>
+                  
+                  <p>Redefine vanlife with the Open Source Open Road Rock and Roll Bed — a 3-in-1 convertible seating system that adapts to your adventure. Whether you're living full-time on the road or weekend camping, this custom-built system transforms your van or SUV into a fully functional bedroom, lounge, and living room, all in one.</p>
+                  
+                  <div class="product-highlights">
+                    <h3>Product Highlights</h3>
+                    <ul>
+                      <li><strong>3-in-1 Versatility:</strong> Switch between a dual-sided couch, a lounger, and a full bed — designed to make the most of your space, no matter how you travel.</li>
+                      <li><strong>Custom Fit for Any Van or SUV:</strong> Just take a few simple measurements using our video guide. We'll build your Rock and Roll Bed to fit your exact vehicle and ship it to your door, ready to assemble.</li>
+                      <li><strong>Quick & Easy Assembly:</strong> No complex tools or hardware needed. Assemble in minutes using just a few nuts and bolts with help from our step-by-step instructional videos.</li>
+                      <li><strong>Durable, Lightweight Build:</strong> Built to last, yet light enough to install without hassle. Engineered for strength, mobility, and comfort.</li>
+                      <li><strong>Modern Minimal Design:</strong> Sleek lines and a smart layout that looks good in any build, from rugged off-road setups to luxury campers.</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="package-contents">
+                    <h3>Package Contents</h3>
+                    <ul>
+                      <li>Custom-made bed kit based on your exact vehicle dimensions</li>
+                      <li>Cut and labeled pieces for quick identification</li>
+                      <li>Hardware and tool list</li>
+                      <li>Access to video tutorials for measuring, assembling, and installing</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="ideal-for">
+                    <h3>Ideal For</h3>
+                    <ul>
+                      <li>Vanlifers & Overlanders</li>
+                      <li>SUV Campers & DIY Builders</li>
+                      <li>Weekend Warriors & Full-Time Travelers</li>
+                      <li>Anyone who wants a high-quality setup without the guesswork</li>
+                    </ul>
+                  </div>
+                  
+
+              </div>
+        </section>
+
+        <section class="features-section">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Easy Folding Mechanism</h3>
+                    <p>Smooth, reliable folding system that transforms from bed to seating in seconds.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Space Efficient</h3>
+                    <p>Maximizes living space while providing comfortable sleeping arrangements.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Customizable</h3>
+                    <p>Adaptable to various van sizes and configurations.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Durable Construction</h3>
+                    <p>Built with high-quality materials for long-lasting performance.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="cta-section">
+            <a href="Plan.html" class="cta-button">View Build Instructions</a>
+        </div>
+    </main>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

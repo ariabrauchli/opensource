@@ -38,6 +38,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
       }
 
       .logo {
@@ -45,6 +46,7 @@
         font-size: 1.5rem;
         font-weight: bold;
         text-decoration: none;
+        z-index: 1001;
       }
 
       .nav-links {
@@ -68,6 +70,10 @@
         cursor: pointer;
         color: #f2efdf;
         font-size: 1.5rem;
+        z-index: 1001;
+        background: none;
+        border: none;
+        padding: 0.5rem;
       }
 
       /* Page content styles */
@@ -223,19 +229,26 @@
       @media (max-width: 768px) {
         .nav-links {
           display: none;
-          position: absolute;
-          top: 100%;
+          position: fixed;
+          top: 0;
           left: 0;
           width: 100%;
-          background-color: rgba(47, 47, 47, 0.9);
-          padding: 1rem;
+          height: 100vh;
+          background-color: #1b1b1b;
+          padding: 5rem 1rem;
           flex-direction: column;
           align-items: center;
-          gap: 1rem;
+          gap: 1.5rem;
+          transition: all 0.3s ease-in-out;
         }
 
         .nav-links.active {
           display: flex;
+        }
+
+        .nav-links a {
+          font-size: 1.2rem;
+          padding: 0.5rem 0;
         }
 
         .hamburger {
@@ -309,9 +322,37 @@
     </main>
 
     <script>
-      // Simple mobile menu toggle
-      document.querySelector('.hamburger').addEventListener('click', function() {
-        document.querySelector('.nav-links').classList.toggle('active');
+      // Mobile menu toggle with improved functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          // Toggle hamburger icon
+          hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+          // Prevent scrolling when menu is open
+          body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.textContent = '☰';
+            body.style.overflow = '';
+          }
+        });
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.textContent = '☰';
+            body.style.overflow = '';
+          });
+        });
       });
 
       // Form submission handling

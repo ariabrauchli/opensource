@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Source Open Road – Weekly Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    ul.tablinks {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      padding: 0;
+    }
+    ul.tablinks li {
+      margin: 0 10px;
+    }
+    ul.tablinks a {
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #1b1b1b;
+      color: #fff;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    ul.tablinks a:hover {
+      background-color: #444;
+    }
+    .tab {
+      display: none;
+    }
+    .tab.shown {
+      display: block;
+    }
+    .tab h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
 
+<ul class="tablinks">
+  <li><a href="#" data-id="sammy">Sammy</a></li>
+  <li><a href="#" data-id="charlie">Charlie</a></li>
+  <li><a href="#" data-id="aria">Aria</a></li>
+</ul>
+
+<div id="wrapper">
+  <div class="tab" id="sammy">
+    <h2>Sammy's Weekly Blog</h2>
+    <p><!-- INSERT SAMMY BLOG CONTENT HERE --></p>
+  </div>
+  <div class="tab" id="charlie">
+    <h2>Charlie’s Weekly Blog</h2>
+    <p><!-- INSERT CHARLIE BLOG CONTENT HERE --></p>
+  </div>
+  <div class="tab" id="aria">
+    <h2>Aria's Weekly Blog</h2>
+    <p><!-- INSERT ARIA BLOG CONTENT HERE --></p>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('ul.tablinks a').on('click', function(e) {
+      e.preventDefault();
+      let tabID = $(this).data('id');
+      $('#wrapper .tab').fadeOut(300, function() {
+        $(this).removeClass('shown');
+        $('#wrapper .tab#' + tabID).fadeIn(300).addClass('shown');
+      });
+    });
+    // Show first tab on page load
+    $('ul.tablinks a').first().click();
+  });
+</script>
+
+</body>
+</html>

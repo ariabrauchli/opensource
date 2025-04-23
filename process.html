@@ -35,12 +35,21 @@
     }
     .tab {
       display: none;
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     .tab.shown {
       display: block;
+      opacity: 1;
     }
     .tab h2 {
       text-align: center;
+    }
+    #wrapper {
+      position: relative;
+      min-height: 200px;
     }
   </style>
 </head>
@@ -58,7 +67,7 @@
     <p><!-- INSERT SAMMY BLOG CONTENT HERE --></p>
   </div>
   <div class="tab" id="charlie">
-    <h2>Charlie’s Weekly Blog</h2>
+    <h2>Charlie's Weekly Blog</h2>
     <p><!-- INSERT CHARLIE BLOG CONTENT HERE --></p>
   </div>
   <div class="tab" id="aria">
@@ -73,11 +82,16 @@
     $('ul.tablinks a').on('click', function(e) {
       e.preventDefault();
       let tabID = $(this).data('id');
-      $('#wrapper .tab').fadeOut(300, function() {
-        $(this).removeClass('shown');
-        $('#wrapper .tab#' + tabID).fadeIn(300).addClass('shown');
-      });
+      
+      // Hide all tabs first
+      $('#wrapper .tab').removeClass('shown').css('opacity', '0');
+      
+      // Show the selected tab
+      setTimeout(() => {
+        $('#wrapper .tab#' + tabID).addClass('shown').css('opacity', '1');
+      }, 300);
     });
+    
     // Show first tab on page load
     $('ul.tablinks a').first().click();
   });

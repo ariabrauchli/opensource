@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sammy's Project Contribution Summary</title>
+</head>
+
+<style>
+    /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #111;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #333;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #333;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: #ddd;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.5rem;
+    color: #ccc;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin: 1.2rem 0 0.5rem;
+    color: #bbb;
+}
+
+h5 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+    color: #aaa;
+}
+
+h6 {
+    font-size: 1rem;
+    margin: 0.8rem 0 0.3rem;
+    color: #999;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+ul, ol {
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Weekly Logs Styles */
+.week-log {
+    background-color: #111;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #333;
+}
+
+.week-log h3 {
+    color: #fff;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.week-log h4 {
+    color: #ddd;
+}
+
+.week-log p {
+    margin-bottom: 1rem;
+}
+
+.week-log ul, .week-log ol {
+    margin-bottom: 1rem;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #111;
+    border-top: 1px solid #333;
+    margin-top: 2rem;
+}
+
+/* Order Form Styles */
+.order-form-section {
+    background-color: #111;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.order-form-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.order-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ddd;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #666;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0.5rem;
+    }
+    
+    .dropdown-content {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background-color: #222;
+    }
+    
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    .week-log {
+        padding: 1rem;
+    }
+    
+    .order-form-section {
+        padding: 2rem 1rem;
+    }
+    
+    .order-form-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+</style>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>LOGO</h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Weekly Logs</a>
+                    <div class="dropdown-content">
+                        <a href="#week2">Week 2</a>
+                        <a href="#week3">Week 3</a>
+                        <a href="#week4">Week 4</a>
+                        <a href="#week5">Week 5</a>
+                        <a href="#week6">Week 6</a>
+                        <a href="#week7">Week 7</a>
+                        <a href="#week8">Week 8</a>
+                        <a href="#week9">Week 9</a>
+                        <a href="#week10">Week 10</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Sammy's Project Contribution Summary</h1>
+        
+        <section id="responsibilities">
+            <h2>Responsibilities:</h2>
+            <ol>
+                <li>
+                    <h3>CAD & CNC Development:</h3>
+                    <ul>
+                        <li>Completed Skillshare tutorial on Fusion 360.</li>
+                        <li>Rebuilt the bed design using Fusion 360 and later SolidWorks.</li>
+                        <li>Learned and used CAM functions in Fusion 360.</li>
+                        <li>Conducted simulations for material stress in SolidWorks.</li>
+                        <li>Assisted in CNC machining preparation and usage.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Prototyping:</h3>
+                    <ul>
+                        <li>Built a manual proof of concept using available materials.</li>
+                        <li>Fabricated and fitted the final prototype into a car, including crafting a custom base floor.</li>
+                        <li>Sewed custom cushions for the bed prototype.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Business Development:</h3>
+                    <ul>
+                        <li>Conducted market research with business school librarian.</li>
+                        <li>Developed and refined a business plan.</li>
+                        <li>Finalized PSO (Positioning, Strategy, Objective) statement.</li>
+                        <li>Researched and applied for funding opportunities.</li>
+                        <li>Created interview questions and attempted community outreach for user validation.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Community Engagement & Feedback Collection:</h3>
+                    <ul>
+                        <li>Joined online van life communities for feedback and validation.</li>
+                        <li>Drafted and attempted to circulate surveys for market insights.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Content Creation & Website Support:</h3>
+                    <ul>
+                        <li>Participated in creating content for the website and pitch materials.</li>
+                        <li>Assisted in capturing drone shots and the process of measuring van space for documentation.</li>
+                        <li>Provided input on website design, layout, and user experience.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Pitch Preparation:</h3>
+                    <ul>
+                        <li>Worked on finalizing and practicing the pitch presentation.</li>
+                        <li>Helped anticipate and prepare answers for potential investor questions.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section id="accomplishments">
+            <h2>Accomplishments:</h2>
+            <ul>
+                <li>Gained proficiency in Fusion 360, SolidWorks, and basic G-code/CAM operations.</li>
+                <li>Created a functional and visually complete final prototype, tested in real-world conditions.</li>
+                <li>Conducted initial market research and refined the business model for potential commercialization.</li>
+                <li>Successfully collaborated in video production to showcase product functionality.</li>
+                <li>Played a key role in finalizing the pitch deck and delivering a professional team presentation.</li>
+                <li>Applied for funding and began establishing a business case for the product.</li>
+            </ul>
+        </section>
+
+        <section id="challenges">
+            <h2>Challenges Faced:</h2>
+            <ol>
+                <li>
+                    <h3>Technical:</h3>
+                    <ul>
+                        <li>Lost initial design files, requiring rework.</li>
+                        <li>Faced issues with Fusion 360 CAM simulation, needing additional learning.</li>
+                        <li>Difficulty converting and refining CAD models between Fusion 360 and SolidWorks.</li>
+                        <li>Base floor fabrication was unexpectedly needed for proper prototype fitment.</li>
+                        <li>Sewing challenges with cushion design, requiring trial and error.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Engagement:</h3>
+                    <ul>
+                        <li>Struggled to engage online communities for interviews.</li>
+                        <li>Slow responses or no replies from direct outreach attempts.</li>
+                        <li>Low engagement on social media and group posts despite follow-ups.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Time Management:</h3>
+                    <ul>
+                        <li>Balancing business planning, technical development, and prototyping.</li>
+                        <li>Coordinating team tasks and dealing with unforeseen health/scheduling conflicts.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section id="lessons">
+            <h2>Lessons Learned:</h2>
+            <ul>
+                <li>Physical prototyping reveals issues unseen in digital design—real-world testing is essential.</li>
+                <li>Market research is more time-consuming than expected and needs continuous refinement.</li>
+                <li>Effective community engagement requires patience, rapport-building, and varied approaches.</li>
+                <li>Sewing and custom fabrication add complexity but are valuable for a polished product.</li>
+                <li>Collaborative team dynamics need clear roles, communication, and shared momentum.</li>
+                <li>Presentation practice improves clarity, confidence, and narrative coherence.</li>
+            </ul>
+        </section>
+
+        <section id="takeaways">
+            <h2>Key Takeaways:</h2>
+            <ul>
+                <li>Hands-on prototyping is rewarding and critical for validating design functionality.</li>
+                <li>A strong, clear narrative is key for successful pitches and funding applications.</li>
+                <li>Flexibility in approach and task management is necessary to navigate challenges.</li>
+                <li>Supporting team efforts in content creation and website development enhances the overall professionalism of the project.</li>
+            </ul>
+        </section>
+
+        <section id="final-steps">
+            <h2>Final Steps:</h2>
+            <ul>
+                <li>Complete website content integration (videos, renders, purchase process).</li>
+                <li>Continue seeking customer feedback and potential user validation.</li>
+                <li>Reflect on project outcomes for possible future iterations or expansion.</li>
+                <li>Prepare for final presentations, including refined pitch materials if needed.</li>
+            </ul>
+        </section>
+
+        <!-- Weekly Logs -->
+        <section id="weekly-logs">
+            <h2>Weekly Progress Logs</h2>
+            
+            <div id="week2" class="week-log">
+                <h3>Week 2</h3>
+                <h4>Sammy:</h4>
+                <h5>Goals for this week:</h5>
+                <ul>
+                    <li>Complete the Skillshare tutorial on Fusion 360.</li>
+                    <li>Achieve proficiency in Fusion 360 similar to Solidworks.</li>
+                    <li>Recreate the bed design in Fusion 360 (reach goal).</li>
+                </ul>
+                
+                <h5>Accomplishments:</h5>
+                <ul>
+                    <li>Finished the Skillshare tutorial and gained a solid foundation in Fusion 360.</li>
+                    <li>Did not complete the bed design but feel prepared to recreate it with my new skills.</li>
+                    <li>Lost my previous progress document, so recreating it will be a priority next week.</li>
+                    <li>Explored CNC workflows, exceeding my expectations for the tutorial content.</li>
+                </ul>
+                
+                <h5>Time Management Reflection:</h5>
+                <ul>
+                    <li>Could have managed my time better and made more progress toward the reach goal.</li>
+                    <li>Completing the tutorial gave me a strong starting point despite setbacks.</li>
+                    <li>Losing the document emphasized the need for better backups.</li>
+                </ul>
+                
+                <h5>Lessons Learned:</h5>
+                <ul>
+                    <li>Fusion 360 is intuitive and offers exciting CNC tools.</li>
+                    <li>Mastering basics before tackling complex tasks saves time and frustration.</li>
+                    <li>Fresh eyes on the design may lead to improvements over the original work.</li>
+                </ul>
+                
+                <h5>Time Spent:</h5>
+                <ul>
+                    <li>6 hours: Completing the Skillshare tutorial and practicing basics.</li>
+                    <li>3 hours: Researching CNC workflows and exploring advanced Fusion 360 features.</li>
+                </ul>
+                
+                <h5>Next Steps:</h5>
+                <ul>
+                    <li>Recreate the lost progress document and complete the bed design.</li>
+                    <li>Continue exploring CNC workflows to integrate them into future projects.</li>
+                </ul>
+            </div>
+            
+            <div id="week3" class="week-log">
+                <h3>Week 3</h3>
+                <h4>Sammy:</h4>
+                <p>This week, my main objectives were:</p>
+                <ul>
+                    <li>Conduct technical testing with Lexus.</li>
+                    <li>Familiarize myself with G-code and CNC machining.</li>
+                    <li>Create a basic proof of concept for our van conversion without spending money.</li>
+                    <li>Learn and experiment with the CAM function in Fusion 360 to prepare for CNC machining next week.</li>
+                </ul>
+                
+                <h5>Progress Made</h5>
+                <p>I successfully built a basic proof of concept that fit in my car using only materials I had on hand. This took approximately nine hours over the course of two days, and I completed most of the work manually due to limited access to power tools. I also familiarized myself with Fusion 360's CAM function, which will help our group prepare for next week when we begin using the CNC machine.</p>
+                
+                <h5>Challenges Faced</h5>
+                <p>Throughout the process, I encountered several obstacles:</p>
+                <ul>
+                    <li>Limited resources and space made it difficult to work efficiently. I had to rely on friends for access to power tools, but much of the work—including extensive sawing—was done by hand.</li>
+                    <li>Time constraints were an issue, as I worked past sunset, making it necessary to resume the following day.</li>
+                    <li>Material difficulties included screws breaking and dealing with rusty nails, which slowed down the building process.</li>
+                    <li>Fusion 360 CAM simulation issues arose as I attempted to learn by experimenting rather than strictly following a tutorial. This led to confusion and required me to watch additional videos for clarification.</li>
+                </ul>
+                
+                <h5>How I Overcame These Challenges</h5>
+                <p>Although I wasn't able to fully overcome every challenge, I managed by:</p>
+                <ul>
+                    <li>Working incrementally—continuing the next day when it was too dark to proceed.</li>
+                    <li>Utilizing available resources—borrowing power tools from friends while still relying heavily on manual labor.</li>
+                    <li>Expanding my knowledge—watching more tutorials to better understand the CAM simulation in Fusion 360.</li>
+                </ul>
+                
+                <h5>Next Steps</h5>
+                <p>Next week, our focus will be on using the CNC machine to take our prototype to the next level. My personal goals include:</p>
+                <ul>
+                    <li>Strengthening my understanding of G-code, as I haven't used it in a while.</li>
+                    <li>Acquiring additional materials at the lowest possible cost to modify and improve the proof of concept.</li>
+                    <li>Applying what I learned from Fusion 360 CAM to ensure a smooth CNC machining process.</li>
+                </ul>
+                
+                <h5>Resources and Support</h5>
+                <p>Fortunately, our team has all the necessary support for this phase of the project. We have access to:</p>
+                <ul>
+                    <li>CNC machining equipment.</li>
+                    <li>Learning resources for G-code and CAM programming.</li>
+                    <li>A workspace and tools needed for refining our prototype.</li>
+                </ul>
+                
+                <h5>Key Takeaways from This Week</h5>
+                <ul>
+                    <li>Manufacturing and prototyping are incredibly exciting—I enjoy these hands-on stages of the project.</li>
+                    <li>Working with limited resources forces creative problem-solving, making me more adaptable.</li>
+                    <li>Fusion 360 CAM and CNC preparation take time to master, but I am making progress.</li>
+                    <li>Building the proof of concept has helped refine my ideas for the final product, and I look forward to improving it further.</li>
+                </ul>
+                
+                <h5>Final Reflection</h5>
+                <p>I love the manufacturing and prototyping process, which makes these steps of the project particularly exciting. Next week's CNC machining will be a major milestone, and I'm eager to see how the prototype evolves. I look forward to testing new design ideas, refining my work, and gaining more hands-on experience with advanced fabrication tools.</p>
+            </div>
+            
+            <div id="week4" class="week-log">
+                <h3>Week 4</h3>
+                <h4>Sammy:</h4>
+                <h5>Week 4 – Van Conversion Project Progress</h5>
+                
+                <h5>Goals for This Week</h5>
+                <ul>
+                    <li>Conduct market research and industry analysis with a business school librarian.</li>
+                    <li>Continue working on the business plan.</li>
+                    <li>Develop interview questions for future research.</li>
+                    <li>Explore additional materials and mechanisms for the prototype and final product.</li>
+                </ul>
+                
+                <h5>Accomplishments & Time Management</h5>
+                <ul>
+                    <li>Market Research & Industry Analysis (2.5 hrs) – Consulted a business school librarian to gain insights into industry trends, competition, and potential market opportunities. While I made progress, I still need to dive deeper into this research.</li>
+                    <li>Business Plan Development (7 hrs over 3 days) – Started structuring the plan, outlining key sections, and drafting content.</li>
+                    <li>Interview Questions (1 hr) – Created a set of targeted questions for future interviews to validate assumptions and refine our approach.</li>
+                    <li>Material & Mechanism Research (1.5 hrs) – Looked into alternative materials and structural mechanisms that could enhance both the prototype and final product.</li>
+                </ul>
+                
+                <h5>Integration of Feedback</h5>
+                <ul>
+                    <li>Applied insights from the business school librarian to shape my understanding of the market and refine my approach to industry analysis.</li>
+                    <li>Adjusted my business plan structure based on what I learned about investor expectations and industry standards.</li>
+                </ul>
+                
+                <h5>Unexpected Challenges & Lessons Learned</h5>
+                <ul>
+                    <li>Time Management: Balancing different aspects of the project—technical research, business planning, and industry validation—was more challenging than expected.</li>
+                    <li>Market Research Complexity: I underestimated how much depth was needed for thorough industry analysis. I need to dedicate more structured research sessions to fully grasp the competitive landscape.</li>
+                    <li>Business Plan Writing: Breaking it into smaller chunks over multiple days worked well, but I need more structured time blocks to refine each section efficiently.</li>
+                </ul>
+                
+                <h5>Time Breakdown (12 Hours Total)</h5>
+                <ul>
+                    <li>Market Research & Industry Analysis – 2.5 hrs</li>
+                    <li>Business Plan Development – 7 hrs</li>
+                    <li>Interview Question Development – 1 hr</li>
+                    <li>Material & Mechanism Research – 1.5 hrs</li>
+                </ul>
+                
+                <h5>Next Steps</h5>
+                <ul>
+                    <li>Deepen market research with additional sources.</li>
+                    <li>Finalize and refine business plan sections.</li>
+                    <li>Schedule and conduct interviews based on the prepared questions.</li>
+                    <li>Experiment with prototype materials to validate feasibility.</li>
+                </ul>
+            </div>
+            
+            <div id="week5" class="week-log">
+                <h3>Week 5</h3>
+                <h4>Sammy:</h4>
+                <h5>Goals for This Week</h5>
+                <ul>
+                    <li>Conduct further business planning (Friday 9-12, Sunday 11-12)</li>
+                    <li>Finalize PSO statement (Monday 10-12)</li>
+                    <li>Conduct further market research and gather relevant numerical data (Tuesday 12-1)</li>
+                    <li>Orient Aria on AI video creation (Sunday 1-2)</li>
+                </ul>
+                
+                <h5>Accomplishments</h5>
+                <ul>
+                    <li>Continued refining the business plan, outlining financial projections and key business decisions.</li>
+                    <li>Finalized the PSO statement, ensuring clarity in positioning and objectives.</li>
+                    <li>Conducted additional market research, gathering numbers to validate key assumptions.</li>
+                    <li>Worked on orienting Aria with AI video tools but found limitations in the current solutions.</li>
+                </ul>
+                
+                <h5>Challenges & Lessons Learned</h5>
+                <ul>
+                    <li>Market research required more depth than initially expected, needing additional sources.</li>
+                    <li>AI video creation tools were less effective than anticipated and may not be the best route for content generation.</li>
+                    <li>Time management was a key focus—balancing research, writing, and team coordination remains an ongoing challenge.</li>
+                </ul>
+                
+                <h5>Next Steps</h5>
+                <ul>
+                    <li>Further refine business plan sections.</li>
+                    <li>Finalize additional market research findings.</li>
+                    <li>Explore alternative solutions for AI-driven content or social media strategy.</li>
+                </ul>
+            </div>
+            
+            <div id="week6" class="week-log">
+                <h3>Week 6</h3>
+                <h4>Sammy:</h4>
+                <h5>Goals:</h5>
+                <ul>
+                    <li>Conduct interviews to find personas.</li>
+                    <li>Join relevant online groups to connect with the community.</li>
+                    <li>Ideally meet with individuals via Zoom or in person.</li>
+                    <li>Continue justifying the market through research and validation.</li>
+                </ul>
+                
+                <h5>Accomplishments:</h5>
+                <ul>
+                    <li>Joined multiple online groups related to van life and conversions.</li>
+                    <li>Posted messages in these groups to start conversations and look for potential interviewees.</li>
+                    <li>Began observing discussions in the groups to gather insights on common pain points and interests.</li>
+                    <li>Continued researching the market landscape, identifying key competitors and gaps in affordability, modularity, and ease of installation.</li>
+                </ul>
+                
+                <h5>Challenges & Lessons Learned:</h5>
+                <h6>No Direct Connections Yet</h6>
+                <ul>
+                    <li>Despite posting in groups, no one has responded yet or set up an interview.</li>
+                    <li>Engaging in conversations before requesting interviews might help build rapport.</li>
+                </ul>
+                
+                <h6>Finding Active, Responsive Communities Takes Time</h6>
+                <ul>
+                    <li>Some groups seem inactive or slow to engage with new posts.</li>
+                    <li>Need to experiment with different ways of initiating conversations, like responding to existing posts instead of starting new ones.</li>
+                </ul>
+                
+                <h6>Market Research Still Needs More Data</h6>
+                <ul>
+                    <li>While competitive analysis has provided some insights, talking directly to potential customers is necessary for deeper validation.</li>
+                    <li>Considering running a survey instead of waiting for interviews to get some early feedback.</li>
+                </ul>
+                
+                <h5>Next Steps:</h5>
+                <ul>
+                    <li>Follow up on posts to encourage engagement.</li>
+                    <li>Try a different approach in groups—engage in existing discussions rather than posting cold messages.</li>
+                    <li>Reach out to individuals directly (if group rules allow) instead of waiting for replies.</li>
+                    <li>Consider alternative platforms (e.g., Discord, Twitter, niche forums) for better engagement.</li>
+                    <li>Begin drafting a survey to collect structured responses while waiting on interviews.</li>
+                </ul>
+            </div>
+            
+            <div id="week7" class="week-log">
+                <h3>Week 7</h3>
+                <h4>Sammy</h4>
+                <h5>Goals:</h5>
+                <ul>
+                    <li>Follow up on posts to encourage engagement.</li>
+                    <li>Try a different approach in groups—engage in existing discussions rather than posting cold messages.</li>
+                    <li>Reach out to individuals directly (if group rules allow) instead of waiting for replies.</li>
+                    <li>Consider alternative platforms (e.g., Discord, Twitter, niche forums) for better engagement.</li>
+                    <li>Begin drafting a survey to collect structured responses while waiting on interviews.</li>
+                </ul>
+                
+                <h5>Accomplishments:</h5>
+                <ul>
+                    <li>Followed up on previous posts but still struggling to get engagement.</li>
+                    <li>Experimented with responding to ongoing discussions in groups instead of making new posts. This resulted in some replies, but no direct leads for interviews yet.</li>
+                    <li>Reached out to individuals in groups where direct messaging is allowed; however, responses have been slow or nonexistent.</li>
+                    <li>Began drafting a survey to collect structured responses and validate market assumptions.</li>
+                </ul>
+                
+                <h5>Challenges & Lessons Learned:</h5>
+                <h6>Low Engagement on Posts:</h6>
+                <ul>
+                    <li>Even after following up, group members are not responding in meaningful ways.</li>
+                </ul>
+                
+                <h6>Difficulty Getting Direct Responses:</h6>
+                <ul>
+                    <li>Many individuals in groups seem hesitant to engage in one-on-one conversations.</li>
+                </ul>
+                
+                <h6>Finding the Right Community:</h6>
+                <ul>
+                    <li>Some groups are more active than others, and figuring out which ones are worth investing time in is taking longer than expected.</li>
+                </ul>
+                
+                <h6>Survey as a Backup Plan:</h6>
+                <ul>
+                    <li>Since direct interviews are proving difficult, a structured survey may help gather some of the necessary insights.</li>
+                </ul>
+                
+                <h5>Next Steps:</h5>
+                <ul>
+                    <li>Assembly in solidworks</li>
+                    <li>Rendering on aestheticly pleasing video or picture</li>
+                    <li>Simulation to measure material size and type</li>
+                </ul>
+            </div>
+            
+            <div id="week8" class="week-log">
+                <h3>Week 8</h3>
+                <h4>Sammy</h4>
+                <h5>Goals for This Week:</h5>
+                <ul>
+                    <li>Convert Onshape file to SolidWorks and rebuild the assembly.</li>
+                    <li>Conduct simulation and rendering for material testing and visual presentation.</li>
+                    <li>Measure material size and type to ensure structural integrity.</li>
+                </ul>
+                
+                <h5>Accomplishments:</h5>
+                <ul>
+                    <li>Successfully converted the Onshape file into SolidWorks, though some constraints needed refinement during the rebuild.</li>
+                    <li>Conducted initial rendering tests for aesthetic presentation, though optimization is still in progress.</li>
+                    <li>Explored simulation tools in SolidWorks to evaluate material thickness and stress points, gaining insights into potential improvements.</li>
+                </ul>
+                
+                <h5>Challenges & Lessons Learned:</h5>
+                <h6>File Conversion Issues:</h6>
+                <ul>
+                    <li>Some assembly constraints did not transfer perfectly from Onshape to SolidWorks, requiring manual adjustments.</li>
+                </ul>
+                
+                <h6>Rendering Optimization:</h6>
+                <ul>
+                    <li>The rendering process took longer than expected due to high-resolution settings. Need to balance quality and efficiency.</li>
+                </ul>
+                
+                <h6>Simulation Complexity:</h6>
+                <ul>
+                    <li>While initial tests provided useful insights, I need to refine the parameters for more accurate results.</li>
+                </ul>
+                
+                <h5>Next Week: Key Focus Areas & Objectives</h5>
+                <h6>Securing Funding & Business Development</h6>
+                <ul>
+                    <li>Research and apply for funding opportunities, including startup grants and pitch competitions.</li>
+                    <li>Refine financial projections to ensure clarity and accuracy for potential investors.</li>
+                    <li>Reach out to potential investors or mentors to gain insights and explore funding leads.</li>
+                </ul>
+                
+                <h6>Practicing for the Presentation (Pitch Prep)</h6>
+                <ul>
+                    <li>Finalize the pitch deck, ensuring slides are polished, concise, and visually engaging.</li>
+                    <li>Practice pitch delivery in at least two practice sessions with team members and mentors.</li>
+                    <li>Prepare for Q&A by anticipating investor questions and formulating strong, confident responses.</li>
+                </ul>
+                
+                <h6>Content Creation & Website Finalization</h6>
+                <ul>
+                    <li>Generate product renders and visuals for marketing, presentations, and website use.</li>
+                    <li>Finalize website layout and purchase process to streamline navigation and ensure a smooth user experience.</li>
+                    <li>Create engaging content for social media, website copy, and pitch materials.</li>
+                    <li>Explore video content options, testing AI-assisted creation or alternative visual storytelling methods.</li>
+                </ul>
+                
+                <h5>Week 8 – Progress Update (Sammy)</h5>
+                <h6>Goals for This Week</h6>
+                <ul>
+                    <li>Secure Funding & Business Development</li>
+                    <li>Finalize & Practice Presentation</li>
+                    <li>Work on Advertising Video</li>
+                </ul>
+                
+                <h6>Accomplishments</h6>
+                <h6>Funding & Business Development</h6>
+                <ul>
+                    <li>Researched funding opportunities – Explored grants, pitch competitions, and investor outreach options.</li>
+                    <li>Refined financial projections – Ensured clarity in expected costs, revenue, and funding needs.</li>
+                    <li>Began reaching out to potential investors/mentors – Started conversations with relevant contacts to gain insights into funding strategies.</li>
+                </ul>
+                
+                <h6>Presentation Preparation</h6>
+                <ul>
+                    <li>Finalized pitch deck – Ensured slides were polished, concise, and visually engaging.</li>
+                    <li>Practiced multiple times – Ran through delivery, refining key points and timing.</li>
+                    <li>Prepared for Q&A – Anticipated investor questions and worked on formulating strong responses.</li>
+                </ul>
+                
+                <h6>Challenges & Lessons Learned</h6>
+                <ul>
+                    <li>Funding Research Takes Time – While I made progress, I need to allocate more structured time to dig deeper into funding sources and investor outreach.</li>
+                    <li>Practicing the Pitch is Crucial – The more I practiced, the more I refined my delivery and built confidence in answering tough questions.</li>
+                </ul>
+            </div>
+            
+            <div id="week9" class="week-log">
+                <h3>Week 9</h3>
+                <h4>Sammy – Week 9 Progress Update</h4>
+                <h5>Goals for This Week:</h5>
+                <ul>
+                    <li>Finalize and prepare the team presentation.</li>
+                    <li>Apply for funding opportunities to support project development.</li>
+                </ul>
+                
+                <h5>Accomplishments & Reflections:</h5>
+                <p>This week, I focused on two key areas: preparing for our team presentation and submitting funding applications. I worked closely with my teammates to finalize our slides, practicing the delivery multiple times to ensure clarity, flow, and confidence. We paid close attention to integrating feedback from previous practice sessions and refining our narrative to better highlight the value and impact of our van conversion project.</p>
+                <p>On the funding side, I researched and applied to several relevant opportunities, including startup-focused grants and university programs that align with our goals. This process helped clarify our financial needs and forced me to think critically about how to articulate our business case to potential funders.</p>
+                
+                <h5>Challenges & Lessons Learned:</h5>
+                <ul>
+                    <li>Balancing Multiple Priorities: Juggling the presentation prep and funding applications simultaneously was a challenge, but breaking the work into smaller tasks and blocking out focused time helped.</li>
+                    <li>Funding Applications Take Time: Completing the applications took longer than expected, especially when tailoring responses to different organizations.</li>
+                    <li>Importance of a Strong Narrative: Working on the presentation reinforced how essential it is to have a cohesive, compelling story that ties together the technical, business, and user-focused aspects of our project.</li>
+                </ul>
+                
+                <h5>Next Steps:</h5>
+                <ul>
+                    <li>Follow up on submitted funding applications and prepare additional materials if requested.</li>
+                    <li>Incorporate feedback from the Week 9 presentation into our next iteration.</li>
+                    <li>Support final prototyping and prepare materials for future marketing and user testing.</li>
+                </ul>
+            </div>
+            
+            <div id="week10" class="week-log">
+                <h3>Week 10</h3>
+                <h4>Week 10 – Final Progress Update</h4>
+                <h4>Sammy</h4>
+                
+                <h5>Goals for This Week:</h5>
+                <ul>
+                    <li>Finalize the van bed model, complete with all cuts and final assembly.</li>
+                    <li>Fit the completed model into my car, including floor fabrication.</li>
+                    <li>Sew cushions for the bed to complete the prototype.</li>
+                    <li>Support the website build-out with content and functionality feedback.</li>
+                    <li>Assist in video production by capturing the final prototype in action.</li>
+                </ul>
+                
+                <h5>Accomplishments:</h5>
+                <h6>Final Model Build:</h6>
+                <p>I finished building the final version of the van bed, carefully finalizing all cuts and assembling the pieces. A big part of this was ensuring that everything fit together as planned, with proper tolerances and a smooth finish.</p>
+                
+                <h6>Vehicle Fitment:</h6>
+                <p>After removing the seats from my car, I realized that the bed didn't sit flush. I had to fabricate a base floor for it to sit properly, which was unexpected but crucial for stability. This step added complexity, but the result was worth it—everything now fits securely.</p>
+                
+                <h6>Cushion Sewing:</h6>
+                <p>I also sewed custom cushions for the bed. This took more time than anticipated due to some complications with the sewing pattern, particularly making sure the fit was tight but comfortable. Despite these challenges, the cushions turned out well and complete the overall look and functionality of the bed.</p>
+                
+                <h6>Video & Content Creation:</h6>
+                <p>We drove into the mountains to get drone shots of the prototype in action. The video showcases the functionality and design of the bed in a real-world environment, adding great content for the website and our pitch materials. We also recorded the entire process of measuring the space in a vehicle, which will be part of the instructional content for future users.</p>
+                
+                <h6>Website Support:</h6>
+                <p>I provided input and support for the final stages of building out the website. This included helping ensure that the user experience reflects our goals and that all visuals represent the product accurately.</p>
+                
+                <h5>Challenges & Lessons Learned:</h5>
+                <h6>Base Floor Fabrication:</h6>
+                <p>We didn't anticipate needing a base for the bed to sit properly in my car, which added unexpected work. Lesson: Every vehicle is different, and modularity needs to account for floor variation.</p>
+                
+                <h6>Sewing Challenges:</h6>
+                <p>The sewing pattern for the cushions was more complicated than expected. Lesson: Prototyping with fabric demands patience, precision, and sometimes rework, but small tweaks make a big difference in comfort and aesthetics.</p>
+                
+                <h6>Time Management:</h6>
+                <p>Balancing hands-on building, video production, and supporting the website was a lot, but focusing on one task at a time helped me stay on track.</p>
+                
+                <h5>Key Takeaways:</h5>
+                <ul>
+                    <li>Seeing the bed fully assembled, fitted in the car, and with custom cushions was a huge milestone.</li>
+                    <li>The drone footage and video content really brought the project to life and made all the hard work feel tangible and rewarding.</li>
+                    <li>Supporting the website helped reinforce the importance of presenting our work professionally—good design is more than just the physical product, it's also about the user experience from the first interaction online.</li>
+                </ul>
+                
+                <h5>Next Steps:</h5>
+                <ul>
+                    <li>Finalize all content for the website, including the video and measurement guide.</li>
+                    <li>Ensure the website purchase and contact process is seamless for potential customers.</li>
+                    <li>Reflect on the entire project and prepare for final presentations or demonstrations if required.</li>
+                    <li>Stay engaged with feedback and possible future iterations of the product based on real-world use</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Sammy's Project</p>
+    </footer>
+</body>
+</html>

@@ -1,101 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open Source Open Road – Weekly Blog</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-    }
-    ul.tablinks {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-      padding: 0;
-    }
-    ul.tablinks li {
-      margin: 0 10px;
-    }
-    ul.tablinks a {
-      text-decoration: none;
-      padding: 10px 20px;
-      background-color: #1b1b1b;
-      color: #fff;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-    ul.tablinks a:hover {
-      background-color: #444;
-    }
-    .tab {
-      display: none;
-      position: absolute;
-      width: 100%;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .tab.shown {
-      display: block;
-      opacity: 1;
-    }
-    .tab h2 {
-      text-align: center;
-    }
-    #wrapper {
-      position: relative;
-      min-height: 200px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Open Road – Weekly Blog</title>
+    <link rel="stylesheet" href="https://use.typekit.net/lxv4dcl.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #efe6dd;
+            color: #1b1b1b;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1b1b1b;
+            padding: 1rem;
+            z-index: 1000;
+            border-bottom: 2px solid #c08457;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            color: #efe6dd;
+            font-family: "cofo-kabeltouw-stencil-56", sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #efe6dd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #c08457;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: #efe6dd;
+            font-size: 1.5rem;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        /* Page content styles */
+        .page-content {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: visible;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1b1b1b;
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1b1b1b;
+            text-align: center;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tab styles */
+        .tablinks {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 0;
+            gap: 1rem;
+        }
+
+        .tablinks a {
+            text-decoration: none;
+            padding: 12px 24px;
+            background-color: #1b1b1b;
+            color: #efe6dd;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tablinks a:hover {
+            background-color: #c08457;
+            color: #efe6dd;
+        }
+
+        .tab {
+            display: none;
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background-color: #efe6dd;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab.shown {
+            display: block;
+            opacity: 1;
+            position: relative;
+        }
+
+        .tab h2 {
+            text-align: center;
+            color: #1b1b1b;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #c08457;
+        }
+
+        .tab p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #1b1b1b;
+        }
+
+        #wrapper {
+            position: relative;
+            min-height: 400px;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .tablinks {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tablinks a {
+                width: 100%;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">OSOR</a>
+            <div class="nav-links">
+                <a href="About.html">Our Team</a>
+                <a href="Plan.html">Plan Your Van</a>
+                <a href="Bed.html">Check Out The Bed</a>
+            </div>
+            <div class="hamburger">☰</div>
+        </nav>
+    </header>
 
-<ul class="tablinks">
-  <li><a href="#" data-id="sammy">Sammy</a></li>
-  <li><a href="#" data-id="charlie">Charlie</a></li>
-  <li><a href="#" data-id="aria">Aria</a></li>
-</ul>
+    <main class="page-content">
+        <div class="page-title">
+            <h1>Weekly Blog</h1>
+            <p>Follow our journey as we build and improve the Rock & Roll Bed</p>
+        </div>
 
-<div id="wrapper">
-  <div class="tab" id="sammy">
-    <h2>Sammy's Weekly Blog</h2>
-    <p><!-- INSERT SAMMY BLOG CONTENT HERE --></p>
-  </div>
-  <div class="tab" id="charlie">
-    <h2>Charlie's Weekly Blog</h2>
-    <p><!-- INSERT CHARLIE BLOG CONTENT HERE --></p>
-  </div>
-  <div class="tab" id="aria">
-    <h2>Aria's Weekly Blog</h2>
-    <p><!-- INSERT ARIA BLOG CONTENT HERE --></p>
-  </div>
-</div>
+        <ul class="tablinks">
+            <li><a href="#" data-id="sammy">Sammy</a></li>
+            <li><a href="#" data-id="charlie">Charlie</a></li>
+            <li><a href="#" data-id="aria">Aria</a></li>
+        </ul>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('ul.tablinks a').on('click', function(e) {
-      e.preventDefault();
-      let tabID = $(this).data('id');
-      
-      // Hide all tabs first
-      $('#wrapper .tab').removeClass('shown').css('opacity', '0');
-      
-      // Show the selected tab
-      setTimeout(() => {
-        $('#wrapper .tab#' + tabID).addClass('shown').css('opacity', '1');
-      }, 300);
-    });
-    
-    // Show first tab on page load
-    $('ul.tablinks a').first().click();
-  });
-</script>
+        <div id="wrapper">
+            <div class="tab" id="sammy">
+                <h2>Sammy's Weekly Blog</h2>
+                <p><!-- INSERT SAMMY BLOG CONTENT HERE --></p>
+            </div>
+            <div class="tab" id="charlie">
+                <h2>Charlie's Weekly Blog</h2>
+                <p><!-- INSERT CHARLIE BLOG CONTENT HERE --></p>
+            </div>
+            <div class="tab" id="aria">
+                <h2>Aria's Weekly Blog</h2>
+                <p><!-- INSERT ARIA BLOG CONTENT HERE --></p>
+            </div>
+        </div>
+    </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('ul.tablinks a').on('click', function(e) {
+                e.preventDefault();
+                let tabID = $(this).data('id');
+                
+                // Hide all tabs first
+                $('#wrapper .tab').removeClass('shown').css('opacity', '0');
+                
+                // Show the selected tab
+                setTimeout(() => {
+                    $('#wrapper .tab#' + tabID).addClass('shown').css('opacity', '1');
+                }, 300);
+            });
+            
+            // Show first tab on page load
+            $('ul.tablinks a').first().click();
+        });
+    </script>
 </body>
 </html>

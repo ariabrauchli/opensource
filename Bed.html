@@ -371,6 +371,64 @@
              background-color: #748cab;
          }
  
+         /* Order Form Styles */
+         .order-form {
+             max-width: 600px;
+             margin: 2rem auto;
+             padding: 2rem;
+             background-color: #efe6dd;
+             border-radius: 8px;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+         }
+ 
+         .order-form h2 {
+             text-align: center;
+             color: #1b1b1b;
+             margin-bottom: 2rem;
+             font-size: 2.5rem !important;
+         }
+ 
+         .order-form label {
+             display: block;
+             margin-bottom: 0.5rem;
+             color: #1b1b1b;
+             font-weight: 500;
+         }
+ 
+         .order-form input,
+         .order-form textarea {
+             width: 100%;
+             padding: 0.8rem;
+             margin-bottom: 1.5rem;
+             border: 1px solid #c08457;
+             border-radius: 4px;
+             background-color: #fff;
+             font-size: 1rem;
+         }
+ 
+         .order-form textarea {
+             resize: vertical;
+             min-height: 120px;
+         }
+ 
+         .order-form button {
+             display: block;
+             width: 100%;
+             padding: 1rem;
+             background-color: #1b1b1b;
+             color: #efe6dd;
+             border: none;
+             border-radius: 4px;
+             font-size: 1.1rem;
+             font-weight: bold;
+             cursor: pointer;
+             transition: background-color 0.3s ease;
+         }
+ 
+         .order-form button:hover {
+             background-color: #c08457;
+         }
+ 
          /* Media queries for responsiveness */
          @media (max-width: 768px) {
              .nav-links {
@@ -533,9 +591,8 @@
              <a href="Plan.html" class="cta-button">View Build Instructions</a>
          </div>
       <div id="order" class="tab">
-        <h2 style="font-size: 4em !important;">Order Here</h2>
-        <div class="design-item biy-contact">
-          
+        <div class="order-form">
+          <h2>Order Here</h2>
           <form action="https://formspree.io/f/mdkeopeg" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -546,7 +603,7 @@
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="5" required></textarea>
             
-            <button type="submit">Submit</button>
+            <button type="submit">Submit Order</button>
           </form>
         </div>
     </div>

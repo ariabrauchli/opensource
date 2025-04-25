@@ -170,9 +170,27 @@
             color: #1b1b1b;
         }
 
-        #wrapper {
-            position: relative;
-            min-height: 400px;
+        /* Image styles */
+        .blog-content img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 1.5rem auto;
+            display: block;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .image-container img {
+            max-width: 400px;
         }
 
         /* Media queries for responsiveness */
@@ -195,6 +213,102 @@
                 text-align: center;
                 margin: 0.5rem 0;
             }
+
+            /* Mobile typography */
+            .page-title h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .page-title p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .tab h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .tab p {
+                font-size: 1rem;
+                line-height: 1.6;
+                padding: 0 0.5rem;
+            }
+
+            /* Mobile spacing */
+            .page-content {
+                padding: 100px 1rem 1rem;
+            }
+
+            .tab {
+                padding: 1rem;
+            }
+
+            /* Mobile image handling */
+            .blog-content img {
+                max-width: 100%;
+                margin: 1rem auto;
+                border-radius: 4px;
+            }
+
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin: 1rem 0;
+            }
+
+            .image-container img {
+                max-width: 100%;
+            }
+
+            /* Mobile navigation */
+            header {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            /* Mobile content sections */
+            .blog-content h3 {
+                font-size: 1.3rem;
+                margin: 1.5rem 0 1rem;
+            }
+
+            .blog-content p {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Additional mobile optimizations for very small screens */
+        @media (max-width: 480px) {
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+
+            .tab h2 {
+                font-size: 1.3rem;
+            }
+
+            .blog-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .page-content {
+                padding: 80px 0.5rem 0.5rem;
+            }
+
+            .tab {
+                padding: 0.75rem;
+            }
+        }
+
+        #wrapper {
+            position: relative;
+            min-height: 400px;
         }
     </style>
 </head>
@@ -236,15 +350,14 @@
                 <h2>Aria's Weekly Blog</h2>
                 <div class="blog-content">
                     <h3>Week 2</h3>
-                    <p>The URL has been connected at <a href="https://opensourceopenroad.com/" target="_blank" style="color: #c08457; text-decoration: none;">https://opensourceopenroad.com/</a> :) Skeleton of the website is up. There is no CSS added to it.</p>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/wtlUwqt.png" alt="Website skeleton screenshot" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/wtlUwqt.png" alt="Website skeleton screenshot">
                     </div>
                     <p>The documentation process is underway, but as it is the first week and we do not have a van, there is not much to document. Due to travel and doctor appointments, I have not had time to get into a workflow this week, which is when I work best. I have been able to manage quick bursts of work and will be able to focus more starting tomorrow. I have, however, found multiple other van instructables online, such as websites and (sorry Annie) Tik Tok. (It's good for something at least!)</p>
                     <p>There have been no files to save yet. This will be a weekly goal.</p>
                     <p>I have successfully organized the Google Drive. Everything is organized into folders. This successfully declutters everything and makes navigation easier.</p>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/FecR8yS.png" alt="Google Drive organization screenshot" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/FecR8yS.png" alt="Google Drive organization screenshot">
                     </div>
                     <p>I write all feedback down where it is most convenient at the time, which has been the notes app on my phone. Later, I review the feedback to prioritize suggestions that align with my project's goals, focusing on areas that will have the greatest impact. I also share feedback with my team to brainstorm effective solutions.</p>
                     <p>I learned that when I have inconsistencies in my schedule, such as a time zone change, it becomes a lot more difficult for me to keep track of my normal schedule and I end up getting off track and missing things. I am on a slight delay, but only by an hour or two. My mind wants to be on vacation mode as it usually is when I travel, but this is not a vacation. I have learned to set time aside each day to work on my assignments and make progress. My house in DC has a really nice fireplace that makes it easier to do so.</p>
@@ -253,42 +366,37 @@
                     <p>I had a hectic week traveling for medical reasons, so I had to miss class. Over the weekend, Charlie and Sammy filled me in, and I tackled the work in a sprint rather than a marathon, which usually suits me well. I think I made a decent amount of progress. I also got stuck on an error that broke the whole website and ended up spending many hours on that. As of now, I have a very basic website design, but at least it looks better than it did without css. I have also added the links for the navigation bar, although there isn't much to add yet. I will be continuing to add substance to these pages weekly.</p>
                     <p>Before starting on my next goals, I have discussions with my group about what we did and what we need to work on. After missing class, Charlie filled me in and gave me feedback on what I've done and instructed me on what to work on next. This helped me understand what needed improvement and what to focus on next. This helps me prioritize my work.</p>
                     <p>I had a major setback this week. My whole website became inaccessible! After every change I made and pushed into the repository, I would refresh the website so I could see what it looked like. It often ended up being quite slow to see the results. It's taken up to 40 minutes of refreshing before I see any changes. I added CSS styling, and when it finally updated, I couldn't access the page. I had no idea what I had done wrong because I've added similar CSS styling many times before without this happening. I immediately deleted the CSS file, but 40 minutes later, it was still the same. I spent hours on google (some of my search history is below) trying to find a solution. I ended up trying three different things. I'd wait twenty minutes in between each solution, but it wasn't clear which trick finally did it. It was really unexpected for me because everything was going so smoothly beforehand. I ended up working on this for hours. I learned that debugging web issues, especially deployment-related ones, requires a lot of patience and troubleshooting across multiple areas. I hadn't anticipated how long it would take for my changes to reflect, and it was frustrating not knowing if my fixes were working.</p>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/B6ldI5I.png" alt="Website debugging screenshot" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/B6ldI5I.png" alt="Website debugging screenshot">
                     </div>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/Tyaf9zV.png" alt="Website debugging progress screenshot" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/Tyaf9zV.png" alt="Website debugging progress screenshot">
                     </div>
 
                     <h3>Week 4</h3>
                     <p>One thing I'm learning is that things don't always go as planned. Sometimes it can be good and sometimes it can be bad. A goal this week was to populate all pages of the website, but I quickly realized that I don't have any content for a majority of the pages. My plan for next week is to sit down and completely revamp the website. I really want to get better at HTML and CSS, but they weren't offering any classes that fit my schedule this semester. I did populate some pages, however. That took a couple hours.</p>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/DUlPHkL.png" alt="Website CSS and styling progress screenshot" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/DUlPHkL.png" alt="Website CSS and styling progress screenshot">
                     </div>
                     <p>My second goal was to start building the Instagram page. I have since posted a photo and a video. I have been maintaining it every couple of hours or so by following and engaging with new accounts. I think I may need to slow my roll here because we don't have any actual postable original content yet, but I am going to try to make a progress reel soon.</p>
                     <p>I also reached my goal of getting 25 followers. As of now, I have 62 followers. That's about half the followers I have for my photography Instagram, and I've had that for years. I have been putting a lot of effort into doing this, which feels weird because I rarely post on Instagram. I have been managing my time quite well. I try to go on the account every time I open Instagram.</p>
                     <p>I have not yet fixed the incognito issue, but that should hopefully be solved by next week.</p>
                     <p>I also spent the afternoon at the Dawson school with Charlie. I recorded footage and learned about the machines, which I found pretty cool. I hope to do more of this.</p>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/rbE2b3a.png" alt="Dawson School machines and learning experience" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/rbE2b3a.png" alt="Dawson School machines and learning experience">
                     </div>
                     <p>I am adjusting the content I put on Instagram, because I want followers to think I'm authentic, and not a bot. I have realized that the website cannot be thoroughly populated yet, so I am going to adjust and focus on the styling for now. I will make more reels as short form videos hook users.</p>
                     <p>One big takeaway this week is that having a plan is great, but being flexible is just as important. I set out to populate all the website pages, but after realizing I didn't have enough content, I had to rethink my approach. Instead of rushing to fill empty pages, I decided to take a step back and focus on creating quality content first. Spending time at Dawson School also gave me a new perspective. I really enjoyed recording and learning about the machines, which wasn't originally part of my plan. It made me realize that I want to do more hands-on content creation or at least witness it.</p>
-                    <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
-                        <div style="text-align: center;">
-                            <img src="https://i.imgur.com/yZfQDBz.png" alt="Dawson School machines" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                        </div>
-                        <div style="text-align: center;">
-                            <img src="https://i.imgur.com/gTU96Sw.png" alt="Dawson School experience" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                        </div>
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/yZfQDBz.png" alt="account">
                     </div>
 
                     <h3>Week 5</h3>
                     <p>I managed to overwork myself with the amount of goals I had this week, and unfortunately, I did not get a lot done. I ended up catching the flu and have been stuck with a 102 degree fever for the past five days, with no signs of improvement. My plan was to meet with Sena in class and she would walk me through the security issues, but I was unable to get that done. I woke up at 4 PM today despite setting multiple alarms, so I missed the zoom session as well. I have been posting at least one video a day and we have made it to 81 followers! I haven't revamped the website yet because I am living in a foggy haze and cannot think for the life of me. I feel really bad for putting myself and possibly my group behind.</p>
                     <p>Sammy showed me this really cool platform accessible through ChatGPT to help me create reels. After playing around with it, I realized that it wasn't as seamless as it seemed and that it would cost a lot of money to get it to do what I wanted it to do. I told this to Charlie and Sammy, and Charlie suggested I start taking other creator's content, so I've drafted a couple messages and will hopefully have some "original" content (not AI but not my own) by the end of this week. I will of course be crediting their work to avoid lawsuits.</p>
                     <p>Getting the flu was pretty unexpected. I didn't even know I had been exposed because I have been spending all my time at home because it's cold. I learned that getting sick like this could really put me behind so I need to start planning ahead more for unforeseen circumstances. I also thought that the ChatGPT video creation would be a seamless solution, but that was not the case either.</p>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/VI40fdI.png" alt="followers" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/VI40fdI.png" alt="followers">
                     </div>
 
                     <h3>Week 6</h3>
@@ -309,13 +417,13 @@
                     <p>Time management was intense, but it worked for me. I wasn't able to spread the work out like I'd originally planned, but the all-or-nothing approach helped me lock in and make it happen. It wasn't sustainable long-term, but for this final push, it got the job done.</p>
                     <p>I also had to respond to some unexpected challenges. Charlie got COVID this week, which meant I had to learn his part of the presentation in one day while also finishing the website. We went through the slides together multiple times, and I took detailed notes on everything he said I missed. When it came time to present, I was able to include about 95 percent of what we had planned. That felt like a win.</p>
                     <p>This week taught me a lot about my own expectations. I went into this thinking building a website would be easy and fun, but I didn't realize how much I still didn't know. There are so many tools and frameworks, like Bootstrap and more advanced JavaScript, that I haven't fully learned yet. I do know a bit of JavaScript, but not enough to build exactly what I wanted. At times I felt pretty discouraged for overestimating my skills. It's frustrating to be a senior and still feel like there's so much left to learn.</p>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/PBbsQkN.png" alt="Web development learning journey" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/PBbsQkN.png" alt="Web development learning journey">
                     </div>
                     <h3>Week 10</h3>
                     <p>This week, my goals were to make the website secure and do some basic editing, like fixing typos and alignment issues. I'm happy to say I met both of those goals. I finally figured out how to secure the website, thanks to a lot of trial and error and help from online resources. It took hours, but nothing too extreme. I also went through and cleaned up text errors and spacing issues. The only thing I couldn't quite figure out was adjusting the margins of the contact box, which was more complicated than I expected.</p>
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <img src="https://i.imgur.com/JYiCnzc.png" alt="Website contact form margin challenges" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div class="image-container">
+                        <img src="https://i.imgur.com/JYiCnzc.png" alt="Website contact form margin challenges">
                     </div>
                     <p>Time management went fairly well. I paced things out over the week and didn't have to rely on a last-minute sprint. That felt like a step forward. Still, there's always more to learn and do. Even after completing what I set out to do, I realized how much room for improvement there still is.</p>
                     <p>After I met my goals, I met with Charlie, who shared that we need to shift the direction of the website to better match a slightly new vision for the project. That means I'll need to do a full revamp soon. It was a little overwhelming to hear that after I had just finished everything for the week, but I'm going to start working on those changes. We also received feedback that the product shouldn't be offered for free anymore. So now, instead of giving users direct access to an adaptable CAD file, we'll be requiring a contact form submission for purchase.</p>
